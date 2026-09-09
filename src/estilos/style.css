@@ -1,22 +1,97 @@
+body {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 .container {
     display: grid;
-    grid-template-columns: 30% 70%;
-    /* 30% imagen, 70% formulario */
+    grid-template-columns: 35% 65%;
     height: 100vh;
-    /* ocupa todo el alto de la vista */
+    margin: 0;
+    padding: 0;
 }
 
 .imagen {
-    width: 50%;
-    height: 100%;
+    width: 100%;
     overflow: hidden;
-    
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.imagen img {
+    align-items: center;
+    justify-content: center;
     object-fit: cover;
-    /* evita desbordes */
+    align-content: center;
 }
 
 .formulario {
-    padding: 20px;
-    background-color: #678067;
-    /* opcional */
+    padding: 1em;
+    background-color: rgba(25, 75, 61, 0.25);
+}
+
+.form-box {
+    margin: 1em;
+    padding: 2px;
+}
+
+.form-bottom {
+    margin: 0;
+    width: 100%;
+    height: 6vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    color: azure;
+}
+
+.text-input {
+    margin: 0;
+    width: 100%;
+    height: 5vh;
+}
+
+.label-error {
+    color: red;
+    background-color: rgba(165, 42, 42, 0.20);
+    padding: 2px;
+    width: 100%;
+}
+
+.label-error p {
+    padding: 1px;
+    margin: 2px;
+    text-align: justify;
+}
+
+.leyenda {
+    font-size: small;
+}
+
+.links-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.left {
+    text-align: left;
+    align-items: start;
+}
+
+.right {
+    align-items: end;
+    text-align: right;
+}
+
+.form-set-1 {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+    margin: 5px;
+    padding: 5px;
+}
+
+.desplegable {
+    display: block;
+    width: 100%;
+    height: 5vh;
 }
