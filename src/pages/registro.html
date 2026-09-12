@@ -9,73 +9,94 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="imagen">
-            <img alt="imagen-lateral" src="../img/vivero_home_2.jpg" />
+    <header class="cabecera">
+        <div class="title">
+            <h1> Vivero Raiz</h1>
+            <p>Desde 1998</p>
         </div>
-        <div class="formulario">
-            <h1>Crear cuenta</h1>
-            <p>Los campos marcados con * son obligatorios.</p>
-            <form action="#" target="_self" autocomplete="on">
-                <fieldset class="form-set-1">
-                    <legend>DATOS PERSONALES</legend>
+        <div>
+            <ul class="menu-options">
+                <li><a href="catalogo.html">CATALOGO</a></li>
+                <li><a href="nosotros.html">NOSOTROS</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>
+                <li><a href="login.html">INGRESAR</a></li>
+            </ul>
+        </div>
+
+    </header>
+    <main>
+
+        <div class="container">
+            <div class="imagen">
+                <img alt="imagen-lateral" src="../img/vivero_home_2.jpg" />
+            </div>
+            <div class="formulario">
+                <h1>Crear cuenta</h1>
+                <p>Los campos marcados con * son obligatorios.</p>
+                <form action="#" target="_self" autocomplete="on">
+                    <fieldset class="form-set-1">
+                        <legend>DATOS PERSONALES</legend>
+                        <div class="form-box">
+                            <label for="email">NOMBRE *</label>
+                            <br />
+                            <input class="text-input" type="email" id="email" name="email" />
+                        </div>
+                        <div class="form-box">
+                            <label for="email">APELLIDO *</label>
+                            <br />
+                            <input class="text-input" type="email" id="email" name="email" />
+                        </div>
+                        <div class="form-box">
+                            <label for="email">FECHA DE NACIMIENTO</label>
+                            <br />
+                            <input class="text-input" type="email" id="email" name="email" />
+                        </div>
+                        <div class="form-box">
+                            <label for="email">TELÉFONO</label>
+                            <br />
+                            <input class="text-input" type="email" id="email" name="email" />
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-set-1">
+                        <legend>DATOS DE LA CUENTA</legend>
+                        <div class="form-box">
+                            <label for="email">CORREO ELECTRÓNICO *</label>
+                            <br />
+                            <input class="text-input" type="email" id="email" name="email" />
+                        </div>
+                        <div class="form-box">
+                            <label for="email">CONTRASEÑA *</label>
+                            <br />
+                            <input class="text-input" type="email" id="email" name="email" />
+                        </div>
+                        <div class="form-box">
+                            <label for="email">REPETIR CONTRASEÑA *</label>
+                            <br />
+                            <input class="text-input" type="email" id="email" name="email" />
+                        </div>
+                    </fieldset>
                     <div class="form-box">
-                        <label for="email">NOMBRE *</label>
-                        <br />
-                        <input class="text-input" type="email" id="email" name="email" />
+                        <label>ROL EN EL VIVERO *</label>
+                        <select class="desplegable" id="roles" name="roles">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="fiat">Fiat</option>
+                            <option value="audi">Audi</option>
+                        </select>
                     </div>
                     <div class="form-box">
-                        <label for="email">APELLIDO *</label>
-                        <br />
-                        <input class="text-input" type="email" id="email" name="email" />
+                        <input class="form-bottom" type="submit" value="CREAR CUENTA" />
                     </div>
-                    <div class="form-box">
-                        <label for="email">FECHA DE NACIMIENTO</label>
-                        <br />
-                        <input class="text-input" type="email" id="email" name="email" />
-                    </div>
-                    <div class="form-box">
-                        <label for="email">TELÉFONO</label>
-                        <br />
-                        <input class="text-input" type="email" id="email" name="email" />
-                    </div>
-                </fieldset>
-                <fieldset class="form-set-1">
-                    <legend>DATOS DE LA CUENTA</legend>
-                    <div class="form-box">
-                        <label for="email">CORREO ELECTRÓNICO *</label>
-                        <br />
-                        <input class="text-input" type="email" id="email" name="email" />
-                    </div>
-                    <div class="form-box">
-                        <label for="email">CONTRASEÑA *</label>
-                        <br />
-                        <input class="text-input" type="email" id="email" name="email" />
-                    </div>
-                    <div class="form-box">
-                        <label for="email">REPETIR CONTRASEÑA *</label>
-                        <br />
-                        <input class="text-input" type="email" id="email" name="email" />
-                    </div>
-                </fieldset>
-                <div class="form-box">
-                    <label>ROL EN EL VIVERO *</label>
-                    <select class="desplegable" id="roles" name="roles">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="fiat">Fiat</option>
-                        <option value="audi">Audi</option>
-                    </select>
+                </form>
+                <div class="links-container">
+                    <p class="left">¿Ya tenés cuenta? <a href="./login.html">Ingresá</a></p>
                 </div>
-                <div class="form-box">
-                    <input class="form-bottom" type="submit" value="CREAR CUENTA" />
-                </div>
-            </form>
-            <div class="links-container">
-                <p class="left">¿Ya tenés cuenta? <a href="./login.html">Ingresá</a></p>
             </div>
         </div>
-    </div>
+    </main>
+    <footer>
+
+    </footer>
 </body>
 
 </html>

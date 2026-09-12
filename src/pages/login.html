@@ -9,42 +9,63 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="imagen">
-            <img alt="imagen-lateral" src="../img/vivero_home_2.jpg" />
+    <header class="cabecera">
+        <div class="title">
+            <h1> Vivero Raiz</h1>
+            <p>Desde 1998</p>
         </div>
-        <div class="formulario">
-            <h1>Ingresar</h1>
-            <p>Usá la cuenta que dio el vivero.</p>
-            <form action="#" target="_self" autocomplete="on">
-                <div class="label-error">
-                    <p>El correo o la contraseña no coinciden. Probá de nuevo.</p>
+        <div>
+            <ul class="menu-options">
+                <li><a href="./pages/catalogo.html">CATALOGO</a></li>
+                <li><a href="./pages/nosotros.html">NOSOTROS</a></li>
+                <li><a href="./pages/contacto.html">CONTACTO</a></li>
+                <li><a href="./pages/login.html">INGRESAR</a></li>
+            </ul>
+        </div>
+
+    </header>
+    <main>
+        <div class="container">
+            <div class="imagen">
+                <img alt="imagen-lateral" src="../img/vivero_home_2.jpg" />
+            </div>
+            <div class="formulario">
+                <h1>Ingresar</h1>
+                <p>Usá la cuenta que dio el vivero.</p>
+                <form action="#" target="_self" autocomplete="on">
+                    <div class="label-error">
+                        <p>El correo o la contraseña no coinciden. Probá de nuevo.</p>
+                    </div>
+                    <div class="form-box">
+                        <label for="email">CORREO ELECTRÓNICO</label>
+                        <br />
+                        <input class="text-input" type="email" id="email" name="email" />
+                        <br />
+                        <label class="leyenda">Ejemplo: username@dominio.com</label>
+                    </div>
+                    <div class="form-box">
+                        <label for="pwd">CONTRASEÑA</label>
+                        <br />
+                        <input class="text-input" type="password" id="pwd" name="pwd" />
+                        <br />
+                        <input type="checkbox" id="check" name="check" />
+                        <label for="check">Mantener la sesión iniciada</label>
+                    </div>
+                    <div class="form-box">
+                        <input class="form-bottom" type="submit" value="INGRESAR" />
+                    </div>
+                </form>
+                <div class="links-container">
+                    <p class="left"><a href="#">¿Olvidaste tu contraseña?</a></p>
+                    <p class="right">¿No tenés cuenta? <a href="./registro.html">Registrate</a></p>
                 </div>
-                <div class="form-box">
-                    <label for="email">CORREO ELECTRÓNICO</label>
-                    <br />
-                    <input class="text-input" type="email" id="email" name="email" />
-                    <br />
-                    <label class="leyenda">Ejemplo: username@dominio.com</label>
-                </div>
-                <div class="form-box">
-                    <label for="pwd">CONTRASEÑA</label>
-                    <br />
-                    <input class="text-input" type="password" id="pwd" name="pwd" />
-                    <br />
-                    <input type="checkbox" id="check" name="check" />
-                    <label for="check">Mantener la sesión iniciada</label>
-                </div>
-                <div class="form-box">
-                    <input class="form-bottom" type="submit" value="INGRESAR" />
-                </div>
-            </form>
-            <div class="links-container">
-                <p class="left"><a href="#">¿Olvidaste tu contraseña?</a></p>
-                <p class="right">¿No tenés cuenta? <a href="./registro.html">Registrate</a></p>
             </div>
         </div>
-    </div>
+    </main>
+    <footer>
+
+    </footer>
+
 </body>
 
 </html>

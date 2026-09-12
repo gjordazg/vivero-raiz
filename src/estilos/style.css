@@ -1,5 +1,5 @@
 body {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .container {
@@ -104,7 +104,22 @@ body {
     border-radius: 10px;
     padding: 5px;
     margin: auto;
-    cursor: pointer;
+
+}
+
+.planta {
+    text-decoration: none;
+    color: black;
+}
+
+.planta p {
+    margin: 1px;
+    padding: 2px;
+}
+
+.planta:hover p {
+    text-decoration: underline;
+    color: green;
 }
 
 .catalogo:hover {
@@ -112,4 +127,36 @@ body {
     padding: 10px 5px;
     margin: auto;
     border-radius: 20px;
+}
+
+
+.cabecera {
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.menu-options {
+    align-items: end;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+.menu-options li {
+    float: left;
+}
+
+.menu-options li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #333333;
+    color: azure;
+}
+
+.menu-options li a:hover {
+    background-color: #111111;
 }
