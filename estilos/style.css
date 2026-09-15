@@ -160,3 +160,20 @@ body {
 .menu-options li a:hover {
     background-color: #111111;
 }
+
+.ubicacion {
+    margin: auto;
+    padding: 5px;
+    
+}
+
+.ubicacion p {
+    margin: 1px;
+    padding: 2px;
+}
+.ubicacion a {
+    color: black;
+    margin: 1px;
+    padding: 2px;
+    text-decoration: none;
+}
