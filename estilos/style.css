@@ -1,6 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Nunito", sans-serif;
 }
+
+/* Header style */
+.cabecera {
+    display: grid;
+    grid-template-columns: 35vw 65vw;
+    grid-template-rows: 15vh;
+}
+
+/* Header style: Logo and title */
+.cabecera-logo {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-areas: 
+        'logo title'
+        'logo subtitle';
+    grid-template-rows: 9vh 6vh;
+    justify-self: start;
+    text-decoration: none;
+    color: black;
+}
+
+.cabecera-logo img {
+    grid-area: logo;
+    height: 15vh;
+    align-items: center;
+}
+
+.cabecera-title {
+    grid-area: title;
+    margin: 2px;
+    padding: 3px;
+    overflow: hidden;
+    float: left;
+}
+
+.cabecera-subtitle {
+    grid-area: subtitle;
+    margin: 1px;
+    padding: 2px;
+    float: left;
+}
+
+/* Header style: Menu */
+.cabecera-options {
+    width: 100%;
+    align-items: end;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+.cabecera-options li {
+    float: right;
+}
+
+.cabecera-options li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #333333;
+    color: azure;
+}
+
+.cabecera-options li a:hover {
+    background-color: #111111;
+}
+
+
 
 .container {
     display: grid;
@@ -130,36 +206,6 @@ body {
 }
 
 
-.cabecera {
-    display: grid;
-    grid-template-columns: 60% 40%;
-}
-
-.menu-options {
-    align-items: end;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-
-}
-
-.menu-options li {
-    float: left;
-}
-
-.menu-options li a {
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    background-color: #333333;
-    color: azure;
-}
-
-.menu-options li a:hover {
-    background-color: #111111;
-}
 
 .ubicacion {
     margin: auto;
