@@ -76,7 +76,53 @@ body {
     background-color: #111111;
 }
 
+/* Footer style */
+.foot-cont {
+    background-color: rgb(21, 53, 37);
+    color: azure;
+    display: grid;
+    grid-template-areas: 
+        'foot-item1 foot-item2 foot-item3'
+        'copy-right copy-right copy-right';
+    height: 40vh;
+    font-size: 12px;
+    justify-content: space-around;
+}
 
+.foot-item1 {
+    grid-area: foot-item1;
+    width: 40vw;
+    align-self: start;
+    justify-self: center;
+}
+
+.foot-item2 {
+    grid-area: foot-item2;
+    width: 30vw;
+    align-self: start;
+    justify-self: center;
+}
+
+.foot-item2 a { 
+    text-decoration: none;
+    color: azure;
+}
+
+.foot-item3 {
+    grid-area: foot-item3;
+    width: 20vw;
+    align-self: start;
+    justify-self: center;
+}
+
+.copy-right {
+    grid-area: copy-right;
+}
+
+
+main {
+    background-color: #333333;
+}
 
 .container {
     display: grid;
