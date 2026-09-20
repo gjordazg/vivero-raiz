@@ -76,6 +76,10 @@ body {
     background-color: #111111;
 }
 
+.cabecera-options li a:active {
+    background-color: #033b1b;
+}
+
 /* Footer style */
 .foot-cont {
     background-color: rgb(21, 53, 37);
@@ -120,9 +124,86 @@ body {
 }
 
 
-main {
+/* INDEX Style*/
+
+.idx-section1 {
+    height: 85vh;
+    background-color: #033b1b;
+    color: azure;
+}
+
+.idx-section1 h1,  .idx-section1 p {
+    padding: 1rem;
+    margin: 2rem;
+    font-weight: lighter;
+}
+
+.idx-section1 button {
+    padding: 0.75rem;
+    margin: 1.5rem 2.5rem;
+    background-color:#111111; 
+    border: none;
+    border-radius: 0.25rem;
+}
+
+.idx-section1 button a {
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: azure;
+}
+
+.idx-section1 button:hover {
     background-color: #333333;
 }
+
+.idx-section1 button:active {
+    background-color: #d3ebdd;
+}
+
+.idx-section1 button a:active {
+    color: #111111;
+}
+
+
+.idx-section2 {
+    height: 85vh;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    place-items: center;
+    justify-content: space-around;
+    color:#111111;
+}
+
+.idx-section2 div {
+    width: 18rem;
+    margin: auto;
+    padding: 2rem;
+    place-items: center;
+    text-align: start;
+    border: solid 2px #033b1b;
+    border-radius: 1rem;
+}
+
+.idx-section2 div p {
+    word-wrap: break-word;
+}
+
+.idx-section2 div img {
+    display: block;
+    overflow: hidden;
+    margin: auto;
+    padding: auto;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.idx-section2 div a {
+    text-decoration: none;
+    color: #033b1b;
+}
+
+
 
 .container {
     display: grid;
