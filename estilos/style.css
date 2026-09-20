@@ -7,8 +7,9 @@ body {
 /* Header style */
 .cabecera {
     display: grid;
-    grid-template-columns: 35vw 65vw;
+    grid-template-columns: 30vw 60vw;
     grid-template-rows: 15vh;
+    justify-content: space-around;
 }
 
 /* Header style: Logo and title */
@@ -53,7 +54,7 @@ body {
     width: 100%;
     align-items: end;
     list-style-type: none;
-    margin: 0;
+    margin: 1rem;
     padding: 0;
     overflow: hidden;
 
@@ -127,7 +128,7 @@ body {
 /* INDEX Style*/
 
 .idx-section1 {
-    height: 85vh;
+    height: 72.5vh;
     background-color: #033b1b;
     color: azure;
 }
@@ -201,6 +202,77 @@ body {
 .idx-section2 div a {
     text-decoration: none;
     color: #033b1b;
+}
+
+.idx-section3 {
+    display: grid;
+    height: 80vh;
+    grid-template-columns: 45% 45%;
+    justify-content: space-around;
+    place-items: center;
+}
+
+.idx-section3 div, .idx-section3 article {
+    margin: auto;
+    padding: 0.25rem;
+    height: 80%;
+}
+
+.idx-section3 div img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.idx-section3 div button {
+    background-color:#033b1b;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+}
+
+.idx-section3 div button:hover {
+    background-color:#111111;
+}
+
+.idx-section3 div button a {
+    text-align: center;
+    padding: 14px 16px;
+    color: azure;
+    text-decoration: none;
+}
+
+.idx-section4 {
+    display: grid;
+    grid-template-columns: 70% 20%;
+    justify-content: space-around;
+    height: 25vh;
+    border: solid 2px #033b1b;
+    border-radius: 2rem;
+    margin: 1rem;
+}
+
+.idx-section4 div {
+    width: 100%;
+    margin: auto;
+    padding: auto;
+}
+
+.idx-section4 div button {
+    background-color:#033b1b;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+}
+
+.idx-section4 div button:hover {
+    background-color:#111111;
+}
+
+.idx-section4 div button a {
+    text-align: center;
+    padding: 14px 16px;
+    color: azure;
+    text-decoration: none;
 }
 
 
