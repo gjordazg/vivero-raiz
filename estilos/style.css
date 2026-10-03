@@ -1,8 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+
+:root {
+    --color-background-black: #111111;
+    --color-background-dark: #033c19;
+    --color-background-ligth: #194b3c;
+    --color-background-white: #ffffff;
+    --color-background-error: rgba(165, 42, 42, 0.20);
+
+    --color-text-in-black: #f3f3f3;
+    --color-text-in-dark: #c8c8c8;
+    --color-text-in-light: azure;
+    --color-text-in-white: #03263C;
+    --color-text-in-white-light: #033b1b;
+    --color-text-error: red;
+}   
+
+
+
 body {
     font-family: "Nunito", sans-serif;
+    color: var(--color-text-in-white);
+    display: grid;
+    grid-template-rows: 0.75fr minmax(1fr, 10fr) 2fr;
 }
+
+
+/* Extra small devices (phones, 600px and down) 
+@media only screen and (max-width: 600px) {...}*/
+
+/* Small devices (portrait tablets and large phones, 600px and up) 
+@media only screen and (min-width: 600px) {...}*/
+
+/* Medium devices (landscape tablets, 768px and up) 
+@media only screen and (min-width: 768px) {...}*/
+
+/* Large devices (laptops/desktops, 992px and up) 
+@media only screen and (min-width: 992px) {...}*/
+
+/* Extra large devices (large laptops and desktops, 1200px and up) 
+@media only screen and (min-width: 1200px) {...}*/
+
 
 /* Header style */
 .cabecera {
@@ -25,7 +63,7 @@ body {
     grid-template-rows: 9vh 6vh;
     justify-self: start;
     text-decoration: none;
-    color: black;
+    color: var(--color-text-in-white);
 }
 
 .cabecera-logo img {
@@ -57,7 +95,6 @@ body {
     margin: 1rem;
     padding: 0;
     overflow: hidden;
-
 }
 
 .cabecera-options li {
@@ -69,22 +106,24 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    background-color: #333333;
-    color: azure;
+    background-color: var(--color-background-dark);
+    color: var(--color-text-in-dark);
 }
 
-.cabecera-options li a:hover {
-    background-color: #111111;
+.cabecera-options li a:hover:not(.active) {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-in-dark);
 }
 
-.cabecera-options li a:active {
-    background-color: #033b1b;
+.cabecera-options li a.active {
+    background-color: var(--color-background-ligth);
+    color: var(--color-text-in-light);
 }
 
 /* Footer style */
 .foot-cont {
-    background-color: rgb(21, 53, 37);
-    color: azure;
+    background-color: var(--color-background-dark);
+    color: var(--color-text-in-dark);
     display: grid;
     grid-template-areas: 
         'foot-item1 foot-item2 foot-item3'
@@ -110,7 +149,7 @@ body {
 
 .foot-item2 a { 
     text-decoration: none;
-    color: azure;
+    color: var(--color-text-in-dark);
 }
 
 .foot-item3 {
@@ -129,8 +168,8 @@ body {
 
 .idx-section1 {
     height: 72.5vh;
-    background-color: #033b1b;
-    color: azure;
+    background-color: var(--color-background-dark);
+    color: var(--color-text-in-dark);
 }
 
 .idx-section1 h1,  .idx-section1 p {
@@ -142,7 +181,7 @@ body {
 .idx-section1 button {
     padding: 0.75rem;
     margin: 1.5rem 2.5rem;
-    background-color:#111111; 
+    background-color:var(--color-background-black); 
     border: none;
     border-radius: 0.25rem;
 }
@@ -151,19 +190,22 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    color: azure;
+    color: var(--color-text-in-black);
 }
 
 .idx-section1 button:hover {
-    background-color: #333333;
+    background-color: var(--color-background-ligth);
+    color: var(--color-text-in-light);
 }
 
 .idx-section1 button:active {
-    background-color: #d3ebdd;
+    background-color: var(--color-background-dark);
+    border: solid 0.5px var(--color-background-white);
+    border-radius: 0.25rem;
 }
 
 .idx-section1 button a:active {
-    color: #111111;
+    color: var(--color-text-in-black);
 }
 
 
@@ -173,7 +215,6 @@ body {
     grid-template-columns: 30% 30% 30%;
     place-items: center;
     justify-content: space-around;
-    color:#111111;
 }
 
 .idx-section2 div {
@@ -182,7 +223,7 @@ body {
     padding: 2rem;
     place-items: center;
     text-align: start;
-    border: solid 2px #033b1b;
+    border: solid 2px var(--color-background-dark);
     border-radius: 1rem;
 }
 
@@ -201,7 +242,7 @@ body {
 
 .idx-section2 div a {
     text-decoration: none;
-    color: #033b1b;
+    color: var(--color-text-in-white-light);
 }
 
 .idx-section3 {
@@ -224,20 +265,20 @@ body {
 }
 
 .idx-section3 div button {
-    background-color:#033b1b;
+    background-color:var(--color-background-dark);
     border: none;
     border-radius: 0.25rem;
     padding: 0.75rem;
 }
 
 .idx-section3 div button:hover {
-    background-color:#111111;
+    background-color: var(--color-background-ligth);
 }
 
 .idx-section3 div button a {
     text-align: center;
     padding: 14px 16px;
-    color: azure;
+    color: var(--color-text-in-light);
     text-decoration: none;
 }
 
@@ -246,7 +287,7 @@ body {
     grid-template-columns: 70% 20%;
     justify-content: space-around;
     height: 25vh;
-    border: solid 2px #033b1b;
+    border: solid 2px var(--color-background-dark);
     border-radius: 2rem;
     margin: 1rem;
 }
@@ -258,24 +299,25 @@ body {
 }
 
 .idx-section4 div button {
-    background-color:#033b1b;
+    background-color:var(--color-background-dark);
     border: none;
     border-radius: 0.25rem;
     padding: 0.75rem;
 }
 
 .idx-section4 div button:hover {
-    background-color:#111111;
+    background-color: var(--color-background-ligth);
 }
 
 .idx-section4 div button a {
     text-align: center;
     padding: 14px 16px;
-    color: azure;
+    color: var(--color-text-in-light);
     text-decoration: none;
 }
 
 
+/* Estilo para la sección de login */
 
 .container {
     display: grid;
@@ -302,32 +344,34 @@ body {
 
 .formulario {
     padding: 1em;
-    background-color: rgba(25, 75, 61, 0.25);
+    height: 100vh;
 }
 
 .form-box {
     margin: 1em;
-    padding: 2px;
+    padding: 0.2em;
 }
 
 .form-bottom {
-    margin: 0;
+    margin: 0.2em;
+    padding: 0.1em;
     width: 100%;
-    height: 6vh;
-    background-color: rgba(0, 0, 0, 0.75);
+    height: 8vh;
+    background-color: var(--color-background-dark);
     border-radius: 5px;
-    color: azure;
+    color: var(--color-text-in-dark);
 }
 
 .text-input {
-    margin: 0;
+    margin: 0.2em;
+    padding: 0.1em;
     width: 100%;
     height: 5vh;
 }
 
 .label-error {
-    color: red;
-    background-color: rgba(165, 42, 42, 0.20);
+    color: var(--color-text-error);
+    background-color: var(--color-background-error);
     padding: 2px;
     width: 100%;
 }
@@ -371,6 +415,9 @@ body {
     height: 5vh;
 }
 
+
+/* Estilo para la sección de catálogo  */
+
 .catalogo {
     width: 30vw;
     height: 40vh;
@@ -384,7 +431,7 @@ body {
 
 .planta {
     text-decoration: none;
-    color: black;
+    color: var(--color-text-in-white);
 }
 
 .planta p {
@@ -394,7 +441,7 @@ body {
 
 .planta:hover p {
     text-decoration: underline;
-    color: green;
+    color: var(--color-text-in-white-light);
 }
 
 .catalogo:hover {
@@ -403,7 +450,6 @@ body {
     margin: auto;
     border-radius: 20px;
 }
-
 
 
 .ubicacion {
@@ -416,8 +462,9 @@ body {
     margin: 1px;
     padding: 2px;
 }
+
 .ubicacion a {
-    color: black;
+    color: var(--color-text-in-white);
     margin: 1px;
     padding: 2px;
     text-decoration: none;
