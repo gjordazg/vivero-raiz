@@ -20,19 +20,19 @@
         <div>
             <ul class="cabecera-options">
                 <li><a href="../pages/catalogo.html">CATALOGO</a></li>
-                <li><a href="../pages/nosotros.html">NOSOTROS</a></li>
-                <li><a class="active" href="../pages/contacto.html">CONTACTO</a></li>
                 <li><a href="../pages/login.html">INGRESAR</a></li>
+                <li><a class="active" href="../pages/contacto.html">CONTACTO</a></li>
+                <li><a href="#nosotros">NOSOTROS</a></li>
             </ul>
         </div>
     </header>
-    <main>
-        <div>
+    <main class="contacto-container">
+        <section>
             <h1>Contacto</h1>
             <p>Escribinos por encargos, envíos o asesoramiento. Respondemos dentro de las 48 horas hábiles.</p>
-        </div>
-        <div class="form-set-1">
-            <section>
+        </section>
+        <section class="form-set-1">
+            <div>
                 <form class="formulario">
                     <div class="form-box">
                         <label>NOMBRE Y APELLIDO *</label>
@@ -72,8 +72,8 @@
                         <input class="form-bottom" type="submit" value="ENVIAR" />
                     </div>
                 </form>
-            </section>
-            <section>
+            </div>
+            <div>
                 <div class="ubicacion">
                     <h3>DÓNDE ESTAMOS</h3>
                     <p>Ruta 25 km 4,5 - Escobar, Buenos Aires</p>
@@ -89,7 +89,7 @@
                 <div class="schedule">
                     <h3>HORARIOS DE ATENCIÓN</h3>
                     <table>
-                        <tr class="schedule-header">
+                        <tr class="schedule-row">
                             <th>
                                 DÍA
                             </th>
@@ -125,10 +125,10 @@
                 </div>
                 <iframe>
                 </iframe>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
-    <footer class="foot-cont">
+    <footer class="foot-cont" id="nosotros">
         <div class="foot-item1">
             <h3>VIVERO RAÍZ</h3>
             <p>Ruta 25 km 4,5</p>
@@ -138,7 +138,7 @@
         <div class="foot-item2">
             <h3>SECCIONES</h3>
             <p><a href="../pages/catalogo.html">Catálogo</a></p>
-            <p><a href="../pages/nosotros.html">Nosotros</a></p>
+            <p><a href="#">Nosotros</a></p>
             <p><a href="../pages/contacto.html">Contacto</a></p>
             <p><a href="../pages/login.html">Ingresar</a></p>
         </div>
