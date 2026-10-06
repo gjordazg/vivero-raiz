@@ -517,8 +517,8 @@
     }
 
     .cabecera-options li a:hover:not(.active) {
-        background-color: var(--color-background-dark);
-        color: var(--color-text-in-dark);
+        background-color: var(--color-background-black);
+        color: var(--color-text-in-black);
     }
 
     .cabecera-options li a.active {
