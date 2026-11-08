@@ -6,66 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vivero Raiz - Inicio</title>
     <link rel="stylesheet" href="./estilos/style.css" type="text/css">
+    <script src="./funciones/funciones.js"></script>
 </head>
 
 <body>
     <header class="cabecera">
-        <div>
-            <a class="cabecera-logo" href="index.html">
+        <a class="cabecera-logo" href="index.html">
+            <section class="logo">
                 <img src="./img/logo.png" alt="Logo">
+            </section>
+            <section class="logo-titles">
                 <h1 class="cabecera-title">Vivero Raiz</h1>
                 <p class="cabecera-subtitle">Desde 1998</p>
-            </a>
-        </div>
-        <div>
+            </section>
+        </a>
+        <nav>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="cabecera-options">
-                <li><a href="./pages/catalogo.html">CATALOGO</a></li>
-                <li><a href="./pages/login.html">INGRESAR</a></li>
-                <li><a href="./pages/contacto.html">CONTACTO</a></li>
-                <li><a href="#nosotros">NOSOTROS</a></li>
+                <li><a href="catalogo.html">CATALOGO</a></li>
+                <li><a href="login.html">INGRESAR</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>
+                <li><a href="nosotros.html">NOSOTROS</a></li>
             </ul>
-        </div>
+        </nav>
     </header>
     <main>
-        <section class="idx-section1">
-            <h1>Plantas que aguantan <br>tu ritmo de vida</h1>
-            <p>
-                Más de 200 especies de interior u extrior, con la ficha de <br>
-                cuidados de cada una. Elegí por luz, por riego o por lo que te <br>
-                guste mirar
-            </p>
-            <button><a href="">VER CATÁLOGO</a></button>
-            <button><a href="">CÓMO LLEGAR</a></button>
+        <section class="idx-section idx-sec1">
+            <div class="idx-div-1">
+                <h1>Plantas que aguantan tu ritmo de vida</h1>
+                <p class="idx-text">
+                    Más de 200 especies de interior u extrior, con la ficha de
+                    cuidados de cada una. Elegí por luz, por riego o por lo que te
+                    guste mirar
+                </p>
+                <button class="idx-button"><a href="">VER CATÁLOGO</a></button>
+                <button class="idx-button"><a href="">CÓMO LLEGAR</a></button>
+            </div>
+            <div class="idx-div-1">
+                <img src="./img/vivero_home_2.jpg" alt="Vivero" class="idx-img-middle">
+            </div>
         </section>
-        <section class="idx-section2">
-            <div>
-                <img src="./img/interior.jpg" alt="Interior">
+        <section class="idx-section">
+            <div class="idx-div-2">
+                <img src="./img/interior.jpg" alt="Interior" class="idx-img-small">
                 <h5>Interior</h5>
-                <p>Para ambientes con luz indirecta y poco viento.</p>
-                <a href="./pages/catalogo.html">VER 84 PLANTAS</a>
+                <p class="idx-text">Para ambientes con luz indirecta y poco viento.</p>
+                <a href="./catalogo.html">VER 84 PLANTAS</a>
             </div>
-            <div>
-                <img src="./img/exterior.webp" alt="Exterior">
+            <div class="idx-div-2">
+                <img src="./img/exterior.webp" alt="Exterior" class="idx-img-small">
                 <h5>Extereior</h5>
-                <p>Resisten sol pleno, lluvia y cambios de temperatura.</p>
-                <a href="./pages/catalogo.html">VER 61 PLANTAS</a>
+                <p class="idx-text">Resisten sol pleno, lluvia y cambios de temperatura.</p>
+                <a href="./catalogo.html">VER 61 PLANTAS</a>
             </div>
-            <div>
-                <img src="./img/suculentas.jpg" alt="Suculentas">
+            <div class="idx-div-2">
+                <img src="./img/suculentas.jpg" alt="Suculentas" class="idx-img-small">
                 <h5>Suculentas</h5>
-                <p>Riego cada quince días. Ideales para empezar.</p>
-                <a href="./pages/catalogo.html">VER 47 PLANTAS</a>
+                <p class="idx-text">Riego cada quince días. Ideales para empezar.</p>
+                <a href="./catalogo.html">VER 47 PLANTAS</a>
             </div>
         </section>
-        <section class="idx-section3">
-            <div>
-                <img src="./img/vivero_home_3.jpg" alt="Vivero">
+        <section class="idx-section idx-sec1">
+            <div class="idx-div-1">
+                <img src="./img/vivero_home_3.jpg" alt="Vivero"  class="idx-img-middle">
             </div>
-            <div>
+            <div class="idx-div-1">
                 <h1>Un vivero, no un depósito</h1>
-                <p>
-                    Cultivamos en Escobar desde 1998. Cada planta que 
-                    sale de acá pasó por nuestras manos y tiene una ficha 
+                <p class="idx-text">
+                    Cultivamos en Escobar desde 1998. Cada planta que
+                    sale de acá pasó por nuestras manos y tiene una ficha
                     con lo que necesita para no morirse en dos semanas.
                 </p>
                 <ul>
@@ -73,48 +86,50 @@
                     <li>Envíos a todo el AMBA en 48 horas</li>
                     <li>Reposición de la planta si llega dañada</li>
                 </ul>
-                <button>
-                    <a href="./pages/contacto.html">CONOCE EL VIVERO</a>
+                <button class="idx-button">
+                    <a href="./contacto.html">CONOCE EL VIVERO</a>
                 </button>
             </div>
-
         </section>
-        <section class="idx-section4">
-            <div>
+        <section class="idx-section idx-sec2">
+            <div class="idx-div-3">
                 <h1>¿Trabajás en el vivero?</h1>
-                <p>Entrá con tu cuenta para cargar plantas, actualizar precios y controlar el stock.</p>
+                <p class="idx-text">Entrá con tu cuenta para cargar plantas, 
+                    actualizar precios y controlar el stock.</p>
             </div>
-            <div>
-                <button>
-                    <a href="./pages/login.html">INGRESAR A LA INTRANET</a>
+            <div class="idx-div-3">
+                <button class="idx-button">
+                    <a href="./login.html">INGRESAR A LA INTRANET</a>
                 </button>
             </div>
         </section>
     </main>
-    <footer class="foot-cont" id="nosotros">
-        <div class="foot-item1">
-            <h3>VIVERO RAÍZ</h3>
-            <p>Ruta 25 km 4,5</p>
-            <p>Escobar, Buenos Aires</p>
-            <p>(011) 4444-5566</p>
-        </div>
-        <div class="foot-item2">
-            <h3>SECCIONES</h3>
-            <p><a href="./pages/catalogo.html">Catálogo</a></p>
-            <p><a href="#">Nosotros</a></p>
-            <p><a href="./pages/contacto.html">Contacto</a></p>
-            <p><a href="./pages/login.html">Ingresar</a></p>
-        </div>
-        <div class="foot-item3">
-            <h3>HORARIOS</h3>
-            <p>Lunes a viernes de 9 a 18</p>
-            <p>Sábados de 9 a 13</p>
-            <p>Domingos cerrado</p>
-        </div>
-        <div class="copy-right">
+    <footer>
+        <section class="foot-items">
+            <div class="foot-item1">
+                <h3>VIVERO RAÍZ</h3>
+                <p>Ruta 25 km 4,5</p>
+                <p>Escobar, Buenos Aires</p>
+                <p>(011) 4444-5566</p>
+            </div>
+            <div class="foot-item2">
+                <h3>SECCIONES</h3>
+                <p><a href="./catalogo.html">Catálogo</a></p>
+                <p><a href="./nosotros.html">Nosotros</a></p>
+                <p><a href="./contacto.html">Contacto</a></p>
+                <p><a href="./login.html">Ingresar</a></p>
+            </div>
+            <div class="foot-item3">
+                <h3>HORARIOS</h3>
+                <p>Lunes a viernes de 9 a 18</p>
+                <p>Sábados de 9 a 13</p>
+                <p>Domingos cerrado</p>
+            </div>
+        </section>
+        <section class="copy-right">
             <hr>
             <p>(c) 2026 VIVERO RAÍZ - TRABAJO PRÁCTICO INTEGRADOR</p>
-        </div>
+        </section>
     </footer>
 </body>
 

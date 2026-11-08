@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout Responsivo con Unidades CSS</title>
+  <style>
+    /* ===========================
+       Variables globales
+       =========================== */
+    :root {
+      --color-bg: #ffffff;
+      --color-text: #333333;
+      --color-primary: #0077cc;
+
+      --font-base: 1.6rem;
+      --font-h1: 3.2rem;
+
+      --space-sm: 1.2rem;
+      --space-md: 2rem;
+      --space-lg: 3.2rem;
+
+      --container-max: 120rem; /* 1200px */
+    }
+
+    /* Tema oscuro */
+    .dark-theme {
+      --color-bg: #121212;
+      --color-text: #f0f0f0;
+      --color-primary: #66ccff;
+    }
+
+    /* ===========================
+       Base
+       =========================== */
+    html {
+      font-size: 62.5%; /* 1rem = 10px */
+    }
+
+    body {
+      margin: 0;
+      font-size: var(--font-base);
+      font-family: system-ui, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-size: var(--font-h1);
+      text-align: center;
+      padding: var(--space-md);
+    }
+
+    /* ===========================
+       Layout
+       =========================== */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: var(--space-md);
+    }
+
+    .hero {
+      width: 100vw;       /* ocupa todo el ancho del viewport */
+      min-height: 50vh;   /* al menos la mitad de la pantalla */
+      max-height: 100vh;  /* nunca más que la pantalla completa */
+      background: var(--color-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .columns {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .col {
+      flex: 1 1 45%;      /* ocupa al menos 45% del contenedor */
+      min-width: 30rem;   /* nunca menos de 300px */
+      max-width: 60rem;   /* nunca más de 600px */
+      background: #f5f5f5;
+      padding: var(--space-md);
+      border-radius: var(--space-sm);
+    }
+
+    img.responsive {
+      width: 100%;        /* ocupa todo el ancho disponible */
+      max-width: 100%;    /* nunca se desborda */
+      height: auto;       /* mantiene proporción */
+      border-radius: var(--space-sm);
+    }
+
+    /* ===========================
+       Botón con em
+       =========================== */
+    button {
+      font-size: var(--font-base);
+      padding: 0.5em 1em; /* relativo al texto */
+      border: none;
+      border-radius: var(--space-sm);
+      background: var(--color-primary);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* ===========================
+       Footer
+       =========================== */
+    footer {
+      text-align: center;
+      padding: var(--space-md);
+      background: #ddd;
+    }
+
+    /* ===========================
+       Responsivo
+       =========================== */
+    @media (max-width: 768px) {
+      html { font-size: 56.25%; } /* 1rem = 9px */
+      .columns { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejemplo de Layout Responsivo</h1>
+
+  <div class="hero">
+    <p>Sección Hero (min-height: 50vh, max-height: 100vh)</p>
+  </div>
+
+  <div class="container">
+    <div class="columns">
+      <div class="col">
+        <h2>Columna 1</h2>
+        <p>Esta columna usa <code>min-width</code> y <code>max-width</code> en rem.</p>
+        <img src="https://via.placeholder.com/600x400" alt="Ejemplo" class="responsive">
+      </div>
+      <div class="col">
+        <h2>Columna 2</h2>
+        <p>El ancho es flexible (%), pero limitado con <code>min/max</code>.</p>
+        <button id="theme-switch">Cambiar tema</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Footer con ancho fluido (%)</p>
+  </footer>
+
+  <script>
+    // Alternar tema claro/oscuro
+    const body = document.body;
+    const switchBtn = document.getElementById('theme-switch');
+
+    switchBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+    });
+  </script>
+</body>
+</html>

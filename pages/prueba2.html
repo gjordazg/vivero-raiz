@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Hamburguesa Responsivo</title>
+  <style>
+    /* ===========================
+       Estilos base
+       =========================== */
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+    }
+
+    nav {
+      background: #0077cc;
+      color: #fff;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column; /* menú vertical por defecto */
+    }
+
+    nav li {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* ===========================
+       Botón hamburguesa
+       =========================== */
+    .hamburger {
+      display: none; /* oculto en desktop */
+      flex-direction: column;
+      justify-content: space-around;
+      width: 2rem;
+      height: 2rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      margin: 1rem;
+    }
+
+    .hamburger span {
+      width: 2rem;
+      height: 0.25rem;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    /* ===========================
+       Responsive
+       =========================== */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none; /* oculto por defecto en mobile */
+      }
+
+      nav ul.active {
+        display: flex; /* se muestra al activar */
+      }
+
+      .hamburger {
+        display: flex; /* visible en mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul id="menu">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section id="inicio"><h2>Inicio</h2></section>
+  <section id="servicios"><h2>Servicios</h2></section>
+  <section id="nosotros"><h2>Nosotros</h2></section>
+  <section id="contacto"><h2>Contacto</h2></section>
+
+  <script>
+    // Toggle del menú hamburguesa
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivero Raíz - Ingresar</title>
+    <link rel="stylesheet" href="./estilos/style.css" type="text/css">
+    <script src="./funciones/funciones.js"></script>
+</head>
+
+<body>
+    <header class="cabecera">
+        <a class="cabecera-logo" href="index.html">
+            <section class="logo">
+                <img src="./img/logo.png" alt="Logo">
+            </section>
+            <section class="logo-titles">
+                <h1 class="cabecera-title">Vivero Raiz</h1>
+                <p class="cabecera-subtitle">Desde 1998</p>
+            </section>
+        </a>
+        <nav>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="cabecera-options">
+                <li><a href="catalogo.html">CATALOGO</a></li>
+                <li><a href="login.html">INGRESAR</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>
+                <li><a href="nosotros.html">NOSOTROS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="login-container">
+        <aside class="login-img">
+            <img alt="vivero" src="./img/vivero_home_2.jpg" />
+        </aside>
+        <section class="login-form">
+            <div class="login-form-hd">
+                <h1>Ingresar</h1>
+                <p>Usá la cuenta que te dio el vivero.</p>
+            </div>
+            <form action="#" target="_self" autocomplete="on">
+                <div class="login-error">
+                    <p>El correo o la contraseña no coinciden. Probá de nuevo.</p>
+                </div>
+                <div class="form-box">
+                    <label class="leyenda" for="email">CORREO ELECTRÓNICO</label>
+                    <br />
+                    <input 
+                        class="text-input" 
+                        placeholder="usuario@dominio.com"
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required/>
+                    <br />
+                </div>
+                <div class="form-box">
+                    <label class="leyenda" for="pwd">CONTRASEÑA</label>
+                    <br />
+                    <input 
+                        class="text-input" 
+                        placeholder="Contraseña"
+                        type="password" 
+                        id="pwd" 
+                        name="pwd" 
+                        required/>
+                    <div class="form-check">
+                        <input type="checkbox" id="check" name="check" />
+                        <label for="check">Mantener la sesión iniciada</label>
+                    </div>
+                </div>
+                <button class="form-bottom" type="submit">Ingresar</button>
+            </form>
+            <div class="login-links">
+                <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+                <p>¿No tenés cuenta? <a href="./registro.html">Registrate</a></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section class="foot-items">
+            <div class="foot-item1">
+                <h3>VIVERO RAÍZ</h3>
+                <p>Ruta 25 km 4,5</p>
+                <p>Escobar, Buenos Aires</p>
+                <p>(011) 4444-5566</p>
+            </div>
+            <div class="foot-item2">
+                <h3>SECCIONES</h3>
+                <p><a href="./catalogo.html">Catálogo</a></p>
+                <p><a href="./nosotros.html">Nosotros</a></p>
+                <p><a href="./contacto.html">Contacto</a></p>
+                <p><a href="./login.html">Ingresar</a></p>
+            </div>
+            <div class="foot-item3">
+                <h3>HORARIOS</h3>
+                <p>Lunes a viernes de 9 a 18</p>
+                <p>Sábados de 9 a 13</p>
+                <p>Domingos cerrado</p>
+            </div>
+        </section>
+        <section class="copy-right">
+            <hr>
+            <p>(c) 2026 VIVERO RAÍZ - TRABAJO PRÁCTICO INTEGRADOR</p>
+        </section>
+    </footer>
+</body>
+
+</html>

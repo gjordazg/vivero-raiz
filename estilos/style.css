@@ -1,888 +1,603 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
 
+/* ===========================
+    Variables globales
+=========================== */
 
 :root {
-    --color-background-black: #111111;
-    --color-background-dark: #033c19;
-    --color-background-ligth: #194b3c;
-    --color-background-white: #ffffff;
-    --color-background-error: rgba(165, 42, 42, 0.20);
+    /* Colors */
+    --color-background-black: hsl(203, 90%, 12%);
+    --color-dark: hsl(143, 90%, 12%);
+    --color-dark-shadow: hsl(143, 90%, 12%, 0.1);
+    --color-dark-ligth: hsl(162, 50%, 20%);
+    --color-ligth: hsl(0, 0%, 78%);
+    --color-ligth-shadow: hsl(0, 0%, 100%, 0.1);
+    --color-ligth-dark: hsl(180, 100%, 97%);
+    --color-error: hsl(0, 100%, 50%);
+    --color-error-shadow: hsla(0, 59%, 41%, 0.2);
 
-    --color-text-in-black: #f3f3f3;
-    --color-text-in-dark: #c8c8c8;
-    --color-text-in-light: azure;
-    --color-text-in-white: #03263C;
-    --color-text-in-white-light: #033b1b;
-    --color-text-error: red;
-
-    font-family: "Nunito", sans-serif;
-    color: var(--color-text-in-white);
+    /* Fonts family */
+    --text-cursive: "Caveat", cursive;
+    --text-titles: "Vollkorn", serif;
+    --text-general: "Hanken Grotesk", sans-serif;
 }
+
+/* ===========================
+    Estilos globales
+=========================== */
+
+body {
+    font-family: var(--text-general);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--color-background-black);
+    display: grid;
+    grid-template-rows: 0.75fr minmax(1fr, 10fr) 2fr;
+    width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--text-titles);
+}
+
+/* ===========================
+    Header
+=========================== */
+
+.cabecera {
+    display: grid;
+    grid-template-columns: max-content minmax(max-content, 75vw);
+    grid-template-rows: max-content;
+    height: auto;
+    width: 100%;
+    background-color: var(--color-dark);
+}
+
+/* Estilo para la sección del logo */
+.cabecera-logo {
+    margin: 0;
+    padding: 0.5rem;
+    height: auto;
+    display: grid;
+    grid-template-columns: min-content max-content;
+    grid-template-rows: max-content;
+    text-decoration: none;
+}
+
+.logo {
+    height: 100%;
+    align-items: center;
+    justify-self: center;
+}
+
+.logo img {
+    width: 4.5em;
+    height: 4.5em;
+    padding: 0.15em;
+}
+
+.logo-titles {
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        'title'
+        'subtitle';
+    grid-template-rows: 1fr minmax(0.5fr, 1fr);
+    color: var(--color-ligth);
+}
+
+.cabecera-title {
+    grid-area: title;
+    font-family: var(--text-cursive);
+    margin: 0 0 0 -0.25em;
+    padding: 0;
+    font-size: 2.5rem;
+}
+
+.cabecera-subtitle {
+    grid-area: subtitle;
+    font-family: var(--text-cursive);
+    margin: -0.25em 0 2em -0.15em;
+    padding: 0;
+    font-size: 1rem;
+}
+
+/* Estilo para la sección del menu */
+.cabecera-options {
+    width: 100%;
+    height: auto;
+    align-items: end;
+    list-style-type: none;
+    margin: 1.25em 0;
+    padding: auto;
+    overflow: hidden;
+}
+
+.cabecera-options li {
+    float: right;
+    margin: 0 0.15em;
+    padding: 0.15em;
+}
+
+.cabecera-options li a {
+    display: block;
+    text-align: center;
+    padding: 0.75em 1.25em;
+    border-bottom-left-radius: 0.5em;
+    text-decoration: none;
+    color: var(--color-ligth);
+    font-family: var(--text-titles);
+    box-shadow: 0 0.25em 0.1em var(--color-ligth-shadow);
+    font-size: 1rem;
+}
+
+.cabecera-options li a:hover:not(.active) {
+    background-color: var(--color-dark-ligth);
+    color: var(--color-ligth-dark);
+}
+
+.cabecera-options li a.active {
+    font-weight: 600;
+    border-left: solid 0.15px var(--color-dark);
+    border-bottom: solid 0.1em var(--color-dark);
+}
+
+/* ===========================
+    Botón hamburguesa
+=========================== */
+.hamburger {
+    display: none;
+    /* oculto en desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+.hamburger span {
+    width: 2rem;
+    height: 0.25rem;
+    background: var(--color-ligth);
+    border-radius: 2px;
+}
+
+
+/* ===========================
+    Footer
+=========================== */
+
+/* Estilo del pie de página */
+footer {
+    background-color: var(--color-dark);
+    color: var(--color-ligth);
+    display: grid;
+    grid-template-rows: auto max-content;
+    height: auto;
+    font-size: 0.75rem;
+    width: 100%;
+    margin: 0;
+}
+
+.foot-items {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.foot-item1,
+.foot-item2,
+.foot-item3 {
+    flex: auto;
+    min-width: 250px;
+    max-width: 100%;
+    align-self: start;
+    justify-self: center;
+    text-align: center;
+    margin: auto;
+    padding: auto;
+}
+
+.foot-item2 a {
+    text-decoration: none;
+    color: var(--color-ligth);
+}
+
+.copy-right {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.copy-right hr {
+    max-width: 100%;
+    min-width: 80%;
+}
+
+.copy-right p {
+    margin: 0.25em 0.75em;
+}
+
+/* ===========================
+    Etilo de los elementos 
+    del index.html
+=========================== */
+
+.idx-section {
+    width: 100%;
+    height: auto;
+    margin: 2em 0 2.5em 0;
+    padding: 1em;
+    display: flex;
+    flex-flow: row wrap-reverse;
+    justify-content: space-around;
+}
+
+.idx-text {
+    word-wrap: break-word;
+}
+
+.idx-button {
+    background-color: var(--color-dark);
+    height: max-content;
+    width: max-content;
+    margin: 1em;
+    padding: 1em 1.5em;
+    border: none;
+    border-radius: 0.5em;
+}
+
+.idx-button:hover {
+    background-color: var(--color-dark-ligth);
+}
+
+.idx-button a {
+    text-decoration: none;
+    color: var(--color-ligth);
+}
+
+.idx-img-small {
+    display: block;
+    height: auto;
+    width: 85%;
+    overflow: hidden;
+    margin: auto;
+    padding: auto;
+    border-radius: 1.25em;
+}
+
+.idx-img-middle {
+    height: auto;
+    overflow: hidden;
+    min-width: auto;
+    max-width: 90%;
+    border-radius: 1.5rem;
+}
+
+.idx-div-1 {
+    width: 30rem;
+    padding: 0.25em;
+}
+
+.idx-div-2 {
+    width: 15rem;
+    padding: 0.5em;
+    margin: 0.75em;
+    border: solid 2px var(--color-dark);
+    border-radius: 1rem;
+    place-items: center;
+}
+
+.idx-sec2 {
+    border: solid 2px var(--color-dark);
+    border-radius: 1rem;
+}
+
+/* ===========================
+    Etilo de los elementos 
+    del login.html
+=========================== */
+
+.login-container {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    height: auto;
+    width: 100%;
+    margin: 0.25em;
+    padding: 0;
+}
+
+.login-img {
+    width: 100%;
+    overflow: hidden;
+    height: 35rem;
+}
+
+.login-img img {
+    object-fit: cover;
+    height: 100%;
+}
+
+.login-form {
+    margin: 2em 3em;
+}
+
+.login-error {
+    color: var(--color-error);
+    background-color: var(--color-error-shadow);
+    padding: 0.15em;
+    width: 100%;
+    display: none;
+}
+
+.login-error p {
+    padding: 0.15em;
+    margin: 0.50em;
+    text-align: justify;
+}
+
+.form-box {
+    margin: 1em;
+    padding: 0.2em;
+}
+
+.leyenda {
+    color: var(--color-dark-ligth);
+    font-weight: 600;
+}
+
+.text-input {
+    margin: 0.2em;
+    padding: 0.1em;
+    width: 90%;
+    height: 2.5rem;
+}
+
+.text-input::placeholder {
+    padding: 0.1em 0.25em;
+}
+
+.form-bottom {
+    display: block;
+    margin: 2em;
+    padding: 0.25em;
+    width: 70%;
+    height: 2.5rem;
+    border-radius: 5px;
+    color: var(--color-background-black);
+    justify-self: center;
+    border: solid 2px var(--color-dark);
+    background: none;
+    font-weight: 600;
+}
+
+.form-bottom:hover {
+    background-color: var(--color-dark);
+    color: var(--color-ligth);
+    cursor: pointer;
+}
+
+.form-check {
+    margin-top: 2em;
+    font-size: 0.9rem;
+    padding: 0.5em;
+    align-items: center;
+}
+
+.login-links {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.login-links a {
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+.login-links p {
+    text-align: center;
+    text-justify: center;
+}
+
+
+/* ===========================
+    Etilo de los elementos 
+    del catalogo.html
+=========================== */
+
+.catalogo-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    height: auto;
+}
+
+.catalogo-card {
+    flex: auto;
+    max-width: 20rem;
+    height: auto;
+    margin: 1em;
+    padding: 1.5em;
+}
+
+.catalogo-img {
+    display: block;
+    width: 15rem;
+    height: 10rem;
+    overflow: hidden;
+    object-fit: cover;
+    justify-self: center;
+    border-radius: 1.5em;
+}
+
+.catalogo-card hr {
+    width: 90%;
+    justify-self: center;
+}
+
+.catalogo-info {
+    display: grid;
+    grid-template-areas:
+        'nombre precio'
+        'especie especie'
+        'btn btn';
+    justify-content: space-around;
+    padding: auto;
+}
+
+.planta-nombre {
+    grid-area: nombre;
+    font-family: --var(--text-general);
+    color: var(--color-dark);
+    margin: 0 0.25em;
+    align-self: center;
+}
+
+.precio {
+    grid-area: precio;
+    font-family: --var(--text-general);
+    text-shadow: -0.05em 0.01em 0.25em var(--color-dark);
+    margin: 0 0.25em;
+}
+
+.planta-btn {
+    grid-area: btn;
+    margin: 1em 0 0;
+    padding: 0 .5em;
+    border: solid 0.5px var(--color-dark);
+    background: none;
+    border-radius: 8px;
+    width: 10rem;
+    justify-self: center;
+}
+
+.planta-btn a {
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+.planta-btn a:active {
+    color: var(--color-dark);
+}
+
+.especie {
+    grid-area: especie;
+    margin: 0 0.25em;
+}
+
+
+/* ===========================
+    Etilo de los elementos 
+    del catalogo.html
+=========================== */
+
+
+
+
+/* ===========================
+    Responsive
+    =========================== */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 
-    body {
-        display: block;
-    }
-
-    /* Header style */
-    .cabecera {
-        display: grid;
-        grid-template-columns: 1fr min-content(1fr, 3fr);
-    }
-
-    /* Header style: Logo and title */
-    .cabecera-logo {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: hidden;
-        display: grid;
-        grid-template-areas:
-            'logo title'
-            'logo subtitle';
-        grid-template-rows: 8vh 4vh;
-        justify-self: start;
-        text-decoration: none;
-        color: var(--color-text-in-white);
-    }
-
-    .cabecera-logo img {
-        grid-area: logo;
-        height: 12vh;
-        align-items: center;
-    }
-
-    .cabecera-title {
-        grid-area: title;
-        font-size:  1.50em;
-        margin: 1.25px;
-        overflow: hidden;
-        float: left;
-    }
-
-    .cabecera-subtitle {
-        grid-area: subtitle;
-        margin: 0.75px;
-        font-size: 0.85em;
-        float: left;
-    }
-
     /* Header style: Menu */
-    .cabecera-options {
-        display: block;
-        width: 100%;
-        align-items: end;
-        list-style-type: none;
-        margin: 1em 0;
-        padding: 0;
-        overflow: hidden;
-    }
 
     .cabecera-options li {
         float: none;
     }
 
-    .cabecera-options li a {
-        display: block;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        background-color: var(--color-background-dark);
-        color: var(--color-text-in-dark);
+    nav ul {
+        display: none;
+        /* oculto por defecto en mobile */
     }
 
-    .cabecera-options li a:hover:not(.active) {
-        background-color: var(--color-background-dark);
-        color: var(--color-text-in-dark);
+    nav ul.active {
+        display: flex;
+        /* se muestra al activar */
     }
 
-    .cabecera-options li a.active {
-        background-color: var(--color-background-ligth);
-        color: var(--color-text-in-light);
-    }
-
-    /* Footer style */
-    .foot-cont {
-        background-color: var(--color-background-dark);
-        color: var(--color-text-in-dark);
-        display: block;
-        width: 100%;
-        height: auto;
-        font-size: 0.75em;
-        padding: 0.1em;
-    }
-
-    .foot-item1, .foot-item2, .foot-item3 {
-        width: auto;
-        align-self: start;
-        justify-self: center;
-        text-align: center;
-    }
-
-    .foot-item2 a {
-        text-decoration: none;
-        color: var(--color-text-in-dark);
+    .hamburger {
+        display: flex;
+        align-self: flex-end;
+        margin: 1.5em auto 1em;
+        /* visible en mobile */
     }
 
     .copy-right {
-        width: 100%;
-        font-size: 0.70em;
         text-align: center;
-        justify-self: center;
-    }
-
-    .copy-right hr {
-        width: 80vw;
     }
 
 
-    /* INDEX Style*/
 
-    .idx-section1 {
+    .idx-sec2 {
+        min-width: 80%;
+        max-width: 90%;
+        margin: 1em auto;
+        flex-flow: row wrap;
+    }
+
+
+
+    .login-container {
         display: block;
-        height: auto;
-        width: 100%;
-        margin: auto;
-        padding: auto;
-        background-color: var(--color-background-white);
-        color: var(--color-text-in-white);
     }
 
-    .idx-section1 h1,
-    .idx-section1 p {
-        padding: 0.75rem;
-        margin: 0.25rem;
-    }
-
-    .idx-section1 button {
-        display: block;
-        margin: 2em auto;
-        padding: 1em;
-        background-color: var(--color-background-dark);
-        border: none;
-        border-radius: 0.25rem;
-    }
-
-    .idx-section1 button a {
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        color: var(--color-text-in-black);
-    }
-
-    .idx-section1 button:hover {
-        background-color: var(--color-background-ligth);
-        color: var(--color-text-in-light);
-    }
-
-    .idx-section1 button:active {
-        background-color: var(--color-background-dark);
-        border: solid 0.5px var(--color-background-white);
-        border-radius: 0.25rem;
-    }
-
-    .idx-section1 button a:active {
-        color: var(--color-text-in-black);
-    }
-
-    .idx-section2 {
-        height: auto;
-        display: grid;
-        display: block;
-        place-items: center;
-    }
-
-    .idx-section2 div {
-        width: auto;
-        margin: 0.75em;
-        padding: 2rem;
-        place-items: center;
-        text-align: start;
-        border: solid 0.15em var(--color-background-dark);
-        border-radius: 1rem;
-    }
-
-    .idx-section2 div p {
-        word-wrap: break-word;
-    }
-
-    .idx-section2 div img {
-        display: block;
-        overflow: hidden;
-        margin: auto;
-        padding: auto;
-        width: 100%;
-        border-radius: 1rem;
-    }
-
-    .idx-section2 div a {
-        text-decoration: none;
-        color: var(--color-text-in-white-light);
-    }
-
-    .idx-section3 {
-        display: block;
-        height: auto;
-        grid-template-columns: 45% 45%;
-        justify-content: space-around;
-        place-items: center;
-    }
-
-    .idx-section3 div,
-    .idx-section3 article {
-        margin: auto;
-        padding: 0.25rem;
-        height: auto;
-    }
-
-    .idx-section3 div img {
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .idx-section3 div button {
-        display: block;
-        background-color: var(--color-background-dark);
-        border: none;
-        border-radius: 0.25rem;
-        padding: 0.75rem;
-        margin: auto;
-    }
-
-    .idx-section3 div button:hover {
-        background-color: var(--color-background-ligth);
-    }
-
-    .idx-section3 div button a {
-        text-align: center;
-        padding: 14px 16px;
-        color: var(--color-text-in-light);
-        text-decoration: none;
-    }
-
-    .idx-section4 {
-        display: block;
-        height: auto;
-        border: solid 0.15em var(--color-background-dark);
-        border-radius: 2rem;
-        padding: 0.5em;
-        margin: 1em;
-    }
-
-    .idx-section4 div {
-        width: 100%;
-        margin: auto;
-        padding: auto;
-    }
-
-    .idx-section4 div button {
-        display: block;
-        background-color: var(--color-background-dark);
-        border: none;
-        border-radius: 0.25rem;
-        margin: auto;
-        padding: 0.75rem;
-    }
-
-    .idx-section4 div button:hover {
-        background-color: var(--color-background-ligth);
-    }
-
-    .idx-section4 div button a {
-        text-align: center;
-        padding: 14px 16px;
-        color: var(--color-text-in-light);
-        text-decoration: none;
-    }
-
-
-    /* Estilo para la sección de login */
-
-    .container {
-        display: block;
-        height: auto;
-        margin: 0;
-        padding: 0;
-    }
-
-    .imagen {
+    .login-img {
         display: none;
     }
 
-    .formulario {
-        padding: 1em;
-        height: 100%;
-    }
 
     .form-box {
-        margin: 1em;
-        padding: 0.2em;
-    }
-
-    .form-bottom {
-        margin: 0.2em;
-        padding: 0.1em;
-        width: 100%;
-        height: 8vh;
-        background-color: var(--color-background-dark);
-        border-radius: 5px;
-        color: var(--color-text-in-dark);
-    }
-
-    .text-input {
-        margin: 0.2em;
-        padding: 0.1em;
-        width: 100%;
-        height: 5vh;
-    }
-
-    .label-error {
-        color: var(--color-text-error);
-        background-color: var(--color-background-error);
-        padding: 2px;
-        width: 100%;
-    }
-
-    .label-error p {
-        padding: 1px;
-        margin: 2px;
-        text-align: justify;
-    }
-
-    .leyenda {
-        font-size: small;
-    }
-
-    .links-container {
-        display: grid;
-        grid-template-columns: 50% 50%;
-    }
-
-    .left {
-        text-align: left;
-        align-items: start;
-    }
-
-    .right {
-        align-items: end;
-        text-align: right;
-    }
-
-    /* Estilo para la sección de catálogo  */
-
-    .catalogo-tabla {
-        display: block;
-        margin: 1em auto;
-    }
-
-    .planta {
-        text-decoration: none;
-        color: var(--color-text-in-white);
-        font-size: 0.75em;
-    }
-
-    .planta p {
-        margin: auto;
-        padding: auto;
-    }
-
-    .planta:hover p {
-        text-decoration: underline;
-        color: var(--color-text-in-white-light);
-    }
-
-    .catalogo {
-        width: 25vw;
-        height: 20vh;
-        overflow: hidden;
-        object-fit: cover;
-        border-radius: 1.25em;
-        padding: 0.25em;
         margin: 0.25em;
-
-    }
-
-    /* Estilo para la sección de contacto  */
-
-    .form-set-1, .ubicacion, .schedule {
-        display: block;
-        margin: 1.25em 0.15em;
         padding: 0.05em;
     }
 
-    .desplegable {
-        display: block;
-        width: 72vw;
-        height: 7vh;
-    }
-
-    .form-box textarea {
+    .text-input {
+        margin: 0.1em;
+        padding: 0.05em;
         width: 100%;
-        height: 25vh;
-
-    }
-
-    .ubicacion a {
-        color: var(--color-text-in-white);
-        text-decoration: none;
-    }
-
-    .schedule table {
-        width: 100%;
-    }
-
-    .schedule-row {
-        text-align: center;
+        height: 2rem;
     }
 
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    body {
+
+    .idx-sec1 {
         display: grid;
-        grid-template-rows: 0.75fr minmax(1fr, 10fr) 2fr;
-    }
-    
-    /* Header style */
-    .cabecera {
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-        grid-template-rows: 1fr;
-        justify-content: space-around;
-    }
-
-    /* Header style: Logo and title */
-    .cabecera-logo {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: hidden;
-        display: grid;
-        grid-template-areas:
-            'logo title'
-            'logo subtitle';
-        grid-template-rows: 3em 2em;
-        justify-self: start;
-        text-decoration: none;
-        color: var(--color-text-in-white);
-    }
-
-    .cabecera-logo img {
-        grid-area: logo;
-        height: 5em;
-        align-items: center;
-    }
-
-    .cabecera-title {
-        grid-area: title;
-        margin: 0.1em;
-        padding: 0.25em 0;
-        overflow: hidden;
-        font-size: 1.75em;
-        float: left;
-    }
-
-    .cabecera-subtitle {
-        grid-area: subtitle;
-        margin: 0.1em;
-        padding: 0.25em 0;
-        font-size: 1em;
-        float: left;
-    }
-
-    /* Header style: Menu */
-    .cabecera-options {
-        width: 100%;
-        align-items: end;
-        list-style-type: none;
-        margin: 1em 0;
-        padding: 0;
-        overflow: hidden;
-    }
-
-    .cabecera-options li {
-        float: right;
-    }
-
-    .cabecera-options li a {
-        display: block;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        background-color: var(--color-background-dark);
-        color: var(--color-text-in-dark);
-    }
-
-    .cabecera-options li a:hover:not(.active) {
-        background-color: var(--color-background-black);
-        color: var(--color-text-in-black);
-    }
-
-    .cabecera-options li a.active {
-        background-color: var(--color-background-ligth);
-        color: var(--color-text-in-light);
-    }
-
-    /* Footer style */
-    .foot-cont {
-        background-color: var(--color-background-dark);
-        color: var(--color-text-in-dark);
-        display: grid;
-        grid-template-areas:
-            'foot-item1 foot-item2 foot-item3'
-            'copy-right copy-right copy-right';
-        height: auto;
-        font-size: 12px;
-        justify-content: space-around;
-    }
-
-    .foot-item1 {
-        grid-area: foot-item1;
-        width: 40vw;
-        align-self: start;
-        justify-self: center;
-    }
-
-    .foot-item2 {
-        grid-area: foot-item2;
-        width: 30vw;
-        align-self: start;
-        justify-self: center;
-    }
-
-    .foot-item2 a {
-        text-decoration: none;
-        color: var(--color-text-in-dark);
-    }
-
-    .foot-item3 {
-        grid-area: foot-item3;
-        width: 20vw;
-        align-self: start;
-        justify-self: center;
-    }
-
-    .copy-right {
-        grid-area: copy-right;
-    }
-
-
-    /* INDEX Style*/
-
-    .idx-section1 {
-        height: auto;
-        background-color: var(--color-background-dark);
-        color: var(--color-text-in-dark);
-        margin: 1em 0;
-    }
-
-    .idx-section1 h1,
-    .idx-section1 p {
-        padding: 1rem;
-        margin: 2rem;
-        font-weight: lighter;
-    }
-
-    .idx-section1 button {
-        padding: 0.75rem;
-        margin: 1.5rem 2.5rem;
-        background-color: var(--color-background-black);
-        border: none;
-        border-radius: 0.25rem;
-    }
-
-    .idx-section1 button a {
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        color: var(--color-text-in-black);
-    }
-
-    .idx-section1 button:hover {
-        background-color: var(--color-background-ligth);
-        color: var(--color-text-in-light);
-    }
-
-    .idx-section1 button:active {
-        background-color: var(--color-background-dark);
-        border: solid 0.5px var(--color-background-white);
-        border-radius: 0.25rem;
-    }
-
-    .idx-section1 button a:active {
-        color: var(--color-text-in-black);
-    }
-
-
-    .idx-section2 {
-        height: auto;
-        display: grid;
-        grid-template-columns: 30% 30% 30%;
-        place-items: center;
-        justify-content: space-around;
-    }
-
-    .idx-section2 div {
-        width: 18em;
-        margin: 0.75em;
-        padding: 1rem;
-        place-items: center;
-        text-align: start;
-        border: solid 2px var(--color-background-dark);
-        border-radius: 1rem;
-    }
-
-    .idx-section2 div p {
-        word-wrap: break-word;
-    }
-
-    .idx-section2 div img {
-        display: block;
-        overflow: hidden;
-        margin: auto;
-        padding: auto;
-        width: 100%;
-        border-radius: 1rem;
-    }
-
-    .idx-section2 div a {
-        text-decoration: none;
-        color: var(--color-text-in-white-light);
-    }
-
-    .idx-section3 {
-        display: grid;
-        height: auto;
-        grid-template-columns: 45% 45%;
-        justify-content: space-around;
-        place-items: center;
-        margin: 1em 0;
-    }
-
-    .idx-section3 div,
-    .idx-section3 article {
-        margin: auto;
-        padding: 0.25rem;
-        height: 80%;
-    }
-
-    .idx-section3 div img {
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .idx-section3 div button {
-        background-color: var(--color-background-dark);
-        border: none;
-        border-radius: 0.25rem;
-        padding: 0.75rem;
-    }
-
-    .idx-section3 div button:hover {
-        background-color: var(--color-background-ligth);
-    }
-
-    .idx-section3 div button a {
-        text-align: center;
-        padding: 14px 16px;
-        color: var(--color-text-in-light);
-        text-decoration: none;
-    }
-
-    .idx-section4 {
-        display: grid;
-        grid-template-columns: 70% 20%;
-        justify-content: space-around;
-        height: auto;
-        border: solid 2px var(--color-background-dark);
-        border-radius: 2rem;
-        margin: 2em 0;
-        padding: 1em;
-    }
-
-    .idx-section4 div {
-        width: 100%;
-        margin: auto;
-        padding: auto;
-    }
-
-    .idx-section4 div button {
-        background-color: var(--color-background-dark);
-        border: none;
-        border-radius: 0.25rem;
-        padding: 0.75rem;
-    }
-
-    .idx-section4 div button:hover {
-        background-color: var(--color-background-ligth);
-    }
-
-    .idx-section4 div button a {
-        text-align: center;
-        padding: 14px 16px;
-        color: var(--color-text-in-light);
-        text-decoration: none;
-    }
-
-
-    /* Estilo para la sección de login */
-
-    .container {
-        display: grid;
-        grid-template-columns: 35% 65%;
-        height: auto;
-        width: 100vw;
-        margin: 1.5em;
-        padding: auto;
-    }
-
-    .imagen {
-        width: 100%;
-        overflow: hidden;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-    }
-
-    .imagen img {
-        align-items: center;
-        justify-content: center;
-        object-fit: cover;
-        align-content: center;
-        height: auto;
-    }
-
-    .formulario {
-        margin: 0.75em;
-        padding: auto;
-        height: auto;
-    }
-
-    .form-box {
-        margin: 1em;
-        padding: 0.2em;
-    }
-
-    .form-bottom {
-        margin: 0.2em;
-        padding: 0.1em;
-        width: 100%;
-        height: 8vh;
-        background-color: var(--color-background-dark);
-        border-radius: 5px;
-        color: var(--color-text-in-dark);
-    }
-
-    .text-input {
-        margin: 0.2em;
-        padding: 0.1em;
-        width: 100%;
-        height: 5vh;
-    }
-
-    .label-error {
-        color: var(--color-text-error);
-        background-color: var(--color-background-error);
-        padding: 2px;
-        width: 100%;
-    }
-
-    .label-error p {
-        padding: 1px;
-        margin: 2px;
-        text-align: justify;
-    }
-
-    .leyenda {
-        font-size: small;
-    }
-
-    .links-container {
-        display: grid;
-        grid-template-columns: 50% 50%;
-    }
-
-    .left {
-        text-align: left;
-        align-items: start;
-    }
-
-    .right {
-        align-items: end;
-        text-align: right;
-    }
-
-
-    /* Estilo para la sección de catálogo  */
-
-    .catalogo-tabla {
-        width: 100vw;
-        height: auto;
-        margin: 1.5em;
-        padding: 0.75em;
-    }
-
-    .catalogo-tabla td {
-        width: 30vw;
-        padding: auto;
-        margin: auto;
-    }
-
-    .planta {
-        text-decoration: none;
-        height: auto;
-        color: var(--color-text-in-white);
-    }
-
-    .catalogo {
-        width: 30vw;
-        height: 40vh;
-        overflow: hidden;
-        object-fit: cover;
-        border-radius: 1em;
-        padding: auto;
-        margin: 1.5em;
-        display: block;
-    }
-
-
-    /* Estilo para la sección de contacto  */
-    
-    .contacto-container {
-        margin: 0.75em 1.5em;
-        width: 100vw;
-    }
-    .form-set-1 {
-        display: grid;
-        height: auto;
-        grid-template-rows: 1fr;
         grid-template-columns: 1fr 1fr;
-        margin: 0.75em;
-        padding: auto;
+        justify-content: space-around;
     }
 
-    .desplegable {
-        display: block;
-        width: 100%;
-        height: 7vh;
+    .idx-div-1 {
+        width: 90%;
+        margin: auto;
     }
 
-    .ubicacion {
-        margin: 0;
-        padding: 0;
+    .idx-sec2 {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        justify-content: space-around;
+        width: 90vw;
+        margin: 2rem auto;
     }
 
-    .ubicacion p {
-        margin: 0;
-        padding: auto;
+    .idx-div-3 {
+        width: 90%;
+        margin: auto;
     }
 
-    .ubicacion a {
-        color: var(--color-text-in-white);
-        text-decoration: none;
-        text-align: center;
-    }
 }
