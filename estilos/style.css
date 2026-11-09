@@ -6,7 +6,7 @@
 
 :root {
     /* Colors */
-    --color-background-black: hsl(203, 90%, 12%);
+    --color-black: hsl(203, 90%, 12%);
     --color-dark: hsl(143, 90%, 12%);
     --color-dark-shadow: hsl(143, 90%, 12%, 0.1);
     --color-dark-ligth: hsl(162, 50%, 20%);
@@ -31,7 +31,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    color: var(--color-background-black);
+    color: var(--color-black);
     display: grid;
     grid-template-rows: 0.75fr minmax(1fr, 10fr) 2fr;
     width: 100%;
@@ -45,6 +45,7 @@ h4,
 h5,
 h6 {
     font-family: var(--text-titles);
+    color: var(--color-dark);
 }
 
 /* ===========================
@@ -90,7 +91,7 @@ h6 {
         'title'
         'subtitle';
     grid-template-rows: 1fr minmax(0.5fr, 1fr);
-    color: var(--color-ligth);
+    
 }
 
 .cabecera-title {
@@ -99,6 +100,7 @@ h6 {
     margin: 0 0 0 -0.25em;
     padding: 0;
     font-size: 2.5rem;
+    color: var(--color-ligth);
 }
 
 .cabecera-subtitle {
@@ -107,6 +109,7 @@ h6 {
     margin: -0.25em 0 2em -0.15em;
     padding: 0;
     font-size: 1rem;
+    color: var(--color-ligth);
 }
 
 /* Estilo para la sección del menu */
@@ -162,14 +165,18 @@ h6 {
     background: transparent;
     border: none;
     cursor: pointer;
-    margin: 1rem;
+    margin: 1.5rem 2.5rem 1rem auto;
+    border: solid 0.75px var(--color-ligth-dark);
+    border-radius: 4px;
+    padding: 0.5em;
 }
 
 .hamburger span {
-    width: 2rem;
-    height: 0.25rem;
-    background: var(--color-ligth);
+    width: 80%;
+    height: 0.2em;
+    background: var(--color-ligth-dark);
     border-radius: 2px;
+    justify-self: center;
 }
 
 
@@ -374,7 +381,7 @@ footer {
     width: 70%;
     height: 2.5rem;
     border-radius: 5px;
-    color: var(--color-background-black);
+    color: var(--color-dark);
     justify-self: center;
     border: solid 2px var(--color-dark);
     background: none;
@@ -498,12 +505,85 @@ footer {
 
 
 /* ===========================
-    Etilo de los elementos 
-    del catalogo.html
+    Etilo de la sección
+    de contacto.html
 =========================== */
 
+.contacto-header {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 1rem;
+    overflow: hidden;
+}
 
+.contacto-header p {
+    word-wrap:break-word;
+    padding: 1em;
+}
 
+.contacto-container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    height: auto;
+}
+
+.contacto-container section {
+    width: 45%;
+    margin: 0;
+    padding: 1em 0.5em;
+}
+
+.form-text {
+    margin: 0.2em;
+    padding: 0.1em;
+    width: 90%;
+    height: 10rem;
+}
+
+.desplegable {
+    margin: 0.2em;
+    padding: 0.1em;
+    width: 90%;
+    height: auto;
+}
+
+.ubicacion, .schedule {
+    margin: 0.15rem 0.75rem 3.5rem 0.75rem;
+}
+
+.ubicacion a {
+    color: var(--color-dark);
+    text-decoration: none;
+}
+
+.schedule table {
+    width: 100%;
+}
+
+.schedule-row {
+    text-align: center;
+}
+
+.gallery {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.gallery img {
+    flex: auto;
+    height: 21rem;
+    width: 7rem;
+    object-fit: cover;
+    margin: 0.15em 0.25em;
+    border-radius: 10px;
+}
 
 /* ===========================
     Responsive
@@ -513,34 +593,72 @@ footer {
 @media only screen and (max-width: 600px) {
 
     /* Header style: Menu */
-
-    .cabecera-options li {
-        float: none;
+    .cabecera {
+        grid-template-columns: minmax(1fr, 3fr) 1fr;
     }
 
-    nav ul {
+    .cabecera-title {
+        word-wrap: break-word;
+        font-size: 2rem;
+        align-self: center;
+    }
+
+    .logo img {
+        width: 3em;
+        height: 3em;
+        align-self: center;
+    }
+
+    .cabecera-subtitle {
+        display: none;
+    }
+
+    .hamburger {
+        align-self: center;
+        display: flex;
+        /* visible en mobile */
+    }
+
+    #menu {
         display: none;
         /* oculto por defecto en mobile */
     }
 
-    nav ul.active {
-        display: flex;
+    #menu.menu-active {
+        display: block;
+        position: absolute;
+        right: 3.5em;
+        top: 3em;
+        width: 35%;
+        padding: 0 auto;
+        background-color: var(--color-dark);
         /* se muestra al activar */
     }
 
-    .hamburger {
-        display: flex;
-        align-self: flex-end;
-        margin: 1.5em auto 1em;
-        /* visible en mobile */
+    .cabecera-options li {
+        width: 100%;
+        align-self: center;
+        margin: 0.15em 0.5em;
+        padding: 0.25em 0.75em;
     }
 
+    .cabecera-options li a {
+        display: block;
+        float: none;
+        width: 80%;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+
+    /* Footer style */
     .copy-right {
         text-align: center;
     }
 
 
-
+    /* Header style: Menu */
     .idx-sec2 {
         min-width: 80%;
         max-width: 90%;
@@ -549,7 +667,7 @@ footer {
     }
 
 
-
+    /* Login style */
     .login-container {
         display: block;
     }
@@ -557,7 +675,6 @@ footer {
     .login-img {
         display: none;
     }
-
 
     .form-box {
         margin: 0.25em;
@@ -569,6 +686,10 @@ footer {
         padding: 0.05em;
         width: 100%;
         height: 2rem;
+    }
+
+    .contacto-container section {
+        width: 100%;
     }
 
 }

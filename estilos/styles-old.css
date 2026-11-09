@@ -27,7 +27,7 @@
 
     .idx-section2 div a {
         text-decoration: none;
-        color: var(--color-background-black-light);
+        color: var(--color-text-in-white-light);
     }
 
     .idx-section3 {
@@ -66,7 +66,7 @@
     .idx-section3 div button a {
         text-align: center;
         padding: 14px 16px;
-        color: var(--color-ligth-dark);
+        color: var(--color-text-in-light);
         text-decoration: none;
     }
 
@@ -101,12 +101,14 @@
     .idx-section4 div button a {
         text-align: center;
         padding: 14px 16px;
-        color: var(--color-ligth-dark);
+        color: var(--color-text-in-light);
         text-decoration: none;
     }
 
 
-
+/* ===========================
+    Responsive
+    =========================== */
 
 
     
@@ -138,17 +140,17 @@
         padding: 14px 16px;
         text-decoration: none;
         background-color: var(--color-dark);
-        color: var(--color-ligth);
+        color: var(--color-text-in-dark);
     }
 
     .cabecera-options li a:hover:not(.active) {
         background-color: var(--color-dark);
-        color: var(--color-ligth);
+        color: var(--color-text-in-dark);
     }
 
     .cabecera-options li a.active {
         background-color: var(--color-dark-ligth);
-        color: var(--color-ligth-dark);
+        color: var(--color-text-in-light);
     }
 
     nav ul {
@@ -207,7 +209,7 @@
         height: 8vh;
         background-color: var(--color-dark);
         border-radius: 5px;
-        color: var(--color-ligth);
+        color: var(--color-text-in-dark);
     }
 
     .text-input {
@@ -218,8 +220,8 @@
     }
 
     .label-error {
-        color: var(--color-error);
-        background-color: var(--color-error-shadow);
+        color: var(--color-text-error);
+        background-color: var(--color-background-error);
         padding: 2px;
         width: 100%;
     }
@@ -258,7 +260,7 @@
 
     .planta {
         text-decoration: none;
-        color: var(--color-background-black);
+        color: var(--color-text-in-white);
         font-size: 0.75em;
     }
 
@@ -269,7 +271,7 @@
 
     .planta:hover p {
         text-decoration: underline;
-        color: var(--color-background-black-light);
+        color: var(--color-text-in-white-light);
     }
 
     .catalogo {
@@ -306,7 +308,7 @@
     }
 
     .ubicacion a {
-        color: var(--color-background-black);
+        color: var(--color-text-in-white);
         text-decoration: none;
     }
 
@@ -329,7 +331,7 @@
     .idx-section1 {
         height: auto;
         background-color: var(--color-dark);
-        color: var(--color-ligth);
+        color: var(--color-text-in-dark);
         margin: 1em 0;
     }
 
@@ -343,7 +345,7 @@
     .idx-section1 button {
         padding: 0.75rem;
         margin: 1.5rem 2.5rem;
-        background-color: var(--color-background-black);
+        background-color: var(--color-black);
         border: none;
         border-radius: 0.25rem;
     }
@@ -357,7 +359,7 @@
 
     .idx-section1 button:hover {
         background-color: var(--color-dark-ligth);
-        color: var(--color-ligth-dark);
+        color: var(--color-text-in-light);
     }
 
     .idx-section1 button:active {
@@ -404,7 +406,7 @@
 
     .idx-section2 div a {
         text-decoration: none;
-        color: var(--color-background-black-light);
+        color: var(--color-text-in-white-light);
     }
 
     .idx-section3 {
@@ -442,7 +444,7 @@
     .idx-section3 div button a {
         text-align: center;
         padding: 14px 16px;
-        color: var(--color-ligth-dark);
+        color: var(--color-text-in-light);
         text-decoration: none;
     }
 
@@ -477,7 +479,7 @@
     .idx-section4 div button a {
         text-align: center;
         padding: 14px 16px;
-        color: var(--color-ligth-dark);
+        color: var(--color-text-in-light);
         text-decoration: none;
     }
 
@@ -527,7 +529,7 @@
         height: 8vh;
         background-color: var(--color-dark);
         border-radius: 5px;
-        color: var(--color-ligth);
+        color: var(--color-text-in-dark);
     }
 
     .text-input {
@@ -538,8 +540,8 @@
     }
 
     .label-error {
-        color: var(--color-error);
-        background-color: var(--color-error-shadow);
+        color: var(--color-text-error);
+        background-color: var(--color-background-error);
         padding: 2px;
         width: 100%;
     }
@@ -588,7 +590,7 @@
     .planta {
         text-decoration: none;
         height: auto;
-        color: var(--color-background-black);
+        color: var(--color-text-in-white);
     }
 
     .catalogo {
@@ -636,7 +638,7 @@
     }
 
     .ubicacion a {
-        color: var(--color-background-black);
+        color: var(--color-text-in-white);
         text-decoration: none;
         text-align: center;
     }

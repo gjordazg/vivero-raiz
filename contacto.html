@@ -21,12 +21,12 @@
             </section>
         </a>
         <nav>
-            <button class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <ul class="cabecera-options">
+            <ul class="cabecera-options" id="menu">
                 <li><a href="catalogo.html">CATALOGO</a></li>
                 <li><a href="login.html">INGRESAR</a></li>
                 <li><a href="contacto.html">CONTACTO</a></li>
@@ -34,31 +34,31 @@
             </ul>
         </nav>
     </header>
-    <main class="contacto-container">
-        <section>
+    <main>
+        <div class="contacto-header">
             <h1>Contacto</h1>
             <p>Escribinos por encargos, envíos o asesoramiento. Respondemos dentro de las 48 horas hábiles.</p>
-        </section>
-        <section class="form-set-1">
-            <div>
+        </div>
+        <div class="contacto-container">
+            <section>
                 <form class="formulario">
                     <div class="form-box">
-                        <label>NOMBRE Y APELLIDO *</label>
+                        <label class="leyenda">NOMBRE Y APELLIDO *</label>
                         <br />
                         <input type="text" class="text-input" />
                     </div>
                     <div class="form-box">
-                        <label>CORREO ELECTRÓNICO *</label>
+                        <label class="leyenda">CORREO ELECTRÓNICO *</label>
                         <br />
                         <input type="email" class="text-input" />
                     </div>
                     <div class="form-box">
-                        <label>TELÉFONO *</label>
+                        <label class="leyenda">TELÉFONO *</label>
                         <br />
                         <input type="text" class="text-input" />
                     </div>
                     <div class="form-box">
-                        <label for="motivos">MOTIVO *</label>
+                        <label class="leyenda" for="motivos">MOTIVO *</label>
                         <br />
                         <select class="desplegable" id="motivos" name="motivos">
                             <option value="">Elegi una opción</option>
@@ -68,20 +68,21 @@
                         </select>
                     </div>
                     <div class="form-box">
-                        <label>MENSAJE *</label>
+                        <label class="leyenda">MENSAJE *</label>
                         <br />
-                        <textarea></textarea>
+                        <textarea class="form-text"></textarea>
                     </div>
                     <div class="form-box">
                         <input type="checkbox" id="check" name="check" />
                         <label for="check">Quiero recibir las novedades del vivero</label>
                     </div>
+                    <div id="contacto-msj"></div>
                     <div class="form-box">
-                        <input class="form-bottom" type="submit" value="ENVIAR" />
+                        <button class="form-bottom" type="submit" >Enviar</button>
                     </div>
                 </form>
-            </div>
-            <div>
+            </section>
+            <section>
                 <div class="ubicacion">
                     <h3>DÓNDE ESTAMOS</h3>
                     <p>Ruta 25 km 4,5 - Escobar, Buenos Aires</p>
@@ -131,10 +132,13 @@
                         </tr>
                     </table>
                 </div>
-                <iframe>
-                </iframe>
-            </div>
-        </section>
+                <div class="gallery">
+                    <img src="./img/vivero_interior.png" alt="vivero1">
+                    <img src="./img/vivero_interior_2.png" alt="vivero2">
+                    <img src="./img/vivero_interior_3.png" alt="vivero3">
+                </div>
+            </section>
+        </div>
     </main>
     <footer>
         <section class="foot-items">

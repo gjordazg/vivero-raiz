@@ -7,6 +7,7 @@
     <title>Vivero Raíz - Ingresar</title>
     <link rel="stylesheet" href="./estilos/style.css" type="text/css">
     <script src="./funciones/funciones.js"></script>
+    <script src="./funciones/auth-mock.js"></script>
 </head>
 
 <body>
@@ -21,12 +22,12 @@
             </section>
         </a>
         <nav>
-            <button class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <ul class="cabecera-options">
+            <ul class="cabecera-options" id="menu">
                 <li><a href="catalogo.html">CATALOGO</a></li>
                 <li><a href="login.html">INGRESAR</a></li>
                 <li><a href="contacto.html">CONTACTO</a></li>
@@ -43,19 +44,19 @@
                 <h1>Ingresar</h1>
                 <p>Usá la cuenta que te dio el vivero.</p>
             </div>
-            <form action="#" target="_self" autocomplete="on">
-                <div class="login-error">
-                    <p>El correo o la contraseña no coinciden. Probá de nuevo.</p>
+            <form id="loginForm" target="_self" autocomplete="on">
+                <div class="login-error" id="login-error">
+                    <!-- <p>El correo o la contraseña no coinciden. Probá de nuevo.</p> -->
                 </div>
                 <div class="form-box">
-                    <label class="leyenda" for="email">CORREO ELECTRÓNICO</label>
+                    <label class="leyenda" for="usuario">USUARIO</label>
                     <br />
                     <input 
                         class="text-input" 
-                        placeholder="usuario@dominio.com"
-                        type="email" 
-                        id="email" 
-                        name="email" 
+                        placeholder="Usuario"
+                        type="text" 
+                        id="usuario" 
+                        name="usuario" 
                         required/>
                     <br />
                 </div>
