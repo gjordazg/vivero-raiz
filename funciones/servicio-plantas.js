@@ -9,7 +9,33 @@ async function obtenerPlantas() {
     return response.json();
 }
 
-// Arma la misma tarjeta como texto, con un template string
+// Obtiene detalle de la planta seleccionada, guarda en el SesionStorage y redirige al detalle.
+function verFichaPlanta(plantaId) {
+    const planta = obtenerPlantaPorId(plantaId);
+    sessionStorage.setItem("planta-seleccionada", JSON.stringify(planta));
+    window.location.href = "planta.html?id="+plantaId;
+}
+
+// Filtra planta por su ID
+function obtenerPlantaPorId(plantaId) {
+    const plantas = obtenerPlantasEnSesion();
+    let plantaSeleccionada; 
+    plantas.forEach(planta => {
+            if (planta.id === plantaId) plantaSeleccionada = planta;
+        });
+    return plantaSeleccionada;
+}
+
+// Obtiene las plantas del SesionStorage o consulta a la api
+function obtenerPlantasEnSesion() {
+    let plantas = JSON.parse(sessionStorage.getItem("plantas"));
+    if (plantas === undefined) {
+        plantas = obtenerPlantas();
+    }
+    return plantas
+}
+
+// Arma la tarjeta informativa de una planta para el catálogo, con un template string
 function crearTarjetaTexto(planta) {
     return `
         <section class="catalogo-card">
@@ -19,10 +45,8 @@ function crearTarjetaTexto(planta) {
                 <h3 class="planta-nombre">${planta.nombre}</h3>
                 <p class="especie"><i>${planta.nombreCientifico}</i></p>
                 <h2 class="precio">$ ${planta.precio}</h2> 
-                <button class="planta-btn">
-                    <a href="planta.html?id=${planta.id}">
-                        Ver ficha
-                    </a>
+                <button class="planta-btn" onclick="verFichaPlanta(${planta.id})">
+                    Ver ficha
                 </button>
             </div>
         </section>`;
@@ -38,7 +62,7 @@ async function iniciar() {
     try {
         const plantas = await obtenerPlantas();
         renderizarCatalogoTexto(plantas, document.getElementById("catalogo-container"));
-        console.log("Plantas", plantas);
+        sessionStorage.setItem( "plantas", JSON.stringify(plantas));
     } catch (error) {
         console.error("No se pudo cargar el catálogo:", error);
     }

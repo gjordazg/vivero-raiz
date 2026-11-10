@@ -8,3 +8,12 @@ function toggleMenu() {
         console.log('Error en toggle')
     }
 }
+
+function enviarMsj() {
+    try {
+        document.getElementById("contacto-msj").innerHTML("Mensaje enviado");
+        alert("Mensaje enviado");
+    } catch (error) {
+        console.log('Error enviando mensaje');
+    }
+}

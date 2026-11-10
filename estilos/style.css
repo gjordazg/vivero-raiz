@@ -487,6 +487,7 @@ footer {
     border-radius: 8px;
     width: 10rem;
     justify-self: center;
+    cursor: pointer;
 }
 
 .planta-btn a {
@@ -503,6 +504,71 @@ footer {
     margin: 0 0.25em;
 }
 
+/* ===========================
+    Etilo de la sección
+    de planta.html
+=========================== */
+
+.detalle-planta {
+    display: flex;
+    flex-flow: row wrap-reverse;
+    justify-content: center;
+    margin: 2rem 0.5rem;
+    padding: 1em;
+}
+
+.detalle-planta-text {
+    width: 40%;
+}
+
+.detalle-item {
+    margin-top: 1.75em;
+}
+
+.detalle-item strong {
+    color: var(--color-dark);
+}
+
+.detalle-planta-img {
+    width: 35%;
+    justify-content: space-around;
+    justify-items: center;
+}
+
+.detalle-planta-img img {
+    display: block;
+    border-radius: 50%;
+    width: 20rem;
+    height: 15rem;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.detalle-nombre {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 2.25rem;
+    word-wrap:break-word;
+}
+
+.detalle-especie {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.detalle-precio {
+    font-family: --var(--text-general);
+    float:inline-end;
+    margin-right: 3em;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.etiquetas {
+    font-family: --var(--text-general);
+    text-shadow: -0.05em 0.01em 0.25em var(--color-dark);
+    margin: 0.5em;
+}
 
 /* ===========================
     Etilo de la sección
@@ -568,7 +634,7 @@ footer {
 
 .gallery {
     width: 100%;
-    margin: 0;
+    margin: 0.15rem 0.75rem 3.5rem 0.75rem;
     padding: 0;
     height: auto;
     display: flex;
@@ -690,6 +756,10 @@ footer {
 
     .contacto-container section {
         width: 100%;
+    }
+
+    .detalle-planta-text, .detalle-planta-img {
+        width: 90%;
     }
 
 }

@@ -41,26 +41,26 @@
         </div>
         <div class="contacto-container">
             <section>
-                <form class="formulario">
+                <form class="formulario" target="_self" autocomplete="on">
                     <div class="form-box">
                         <label class="leyenda">NOMBRE Y APELLIDO *</label>
                         <br />
-                        <input type="text" class="text-input" />
+                        <input type="text" class="text-input" required/>
                     </div>
                     <div class="form-box">
                         <label class="leyenda">CORREO ELECTRÓNICO *</label>
                         <br />
-                        <input type="email" class="text-input" />
+                        <input type="email" class="text-input" required/>
                     </div>
                     <div class="form-box">
                         <label class="leyenda">TELÉFONO *</label>
                         <br />
-                        <input type="text" class="text-input" />
+                        <input type="text" class="text-input" required/>
                     </div>
                     <div class="form-box">
                         <label class="leyenda" for="motivos">MOTIVO *</label>
                         <br />
-                        <select class="desplegable" id="motivos" name="motivos">
+                        <select class="desplegable" id="motivos" name="motivos" required>
                             <option value="">Elegi una opción</option>
                             <option value="encargos">Encargos</option>
                             <option value="envios">Envíos</option>
@@ -70,7 +70,7 @@
                     <div class="form-box">
                         <label class="leyenda">MENSAJE *</label>
                         <br />
-                        <textarea class="form-text"></textarea>
+                        <textarea class="form-text" required></textarea>
                     </div>
                     <div class="form-box">
                         <input type="checkbox" id="check" name="check" />
@@ -78,11 +78,16 @@
                     </div>
                     <div id="contacto-msj"></div>
                     <div class="form-box">
-                        <button class="form-bottom" type="submit" >Enviar</button>
+                        <button class="form-bottom" type="submit" onclick="enviarMsj()">Enviar</button>
                     </div>
                 </form>
             </section>
             <section>
+                <div class="gallery">
+                    <img src="./img/vivero_interior.png" alt="vivero1">
+                    <img src="./img/vivero_interior_2.png" alt="vivero2">
+                    <img src="./img/vivero_interior_3.png" alt="vivero3">
+                </div>
                 <div class="ubicacion">
                     <h3>DÓNDE ESTAMOS</h3>
                     <p>Ruta 25 km 4,5 - Escobar, Buenos Aires</p>
@@ -131,11 +136,6 @@
                             </td>
                         </tr>
                     </table>
-                </div>
-                <div class="gallery">
-                    <img src="./img/vivero_interior.png" alt="vivero1">
-                    <img src="./img/vivero_interior_2.png" alt="vivero2">
-                    <img src="./img/vivero_interior_3.png" alt="vivero3">
                 </div>
             </section>
         </div>
