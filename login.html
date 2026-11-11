@@ -7,7 +7,6 @@
     <title>Vivero Raíz - Ingresar</title>
     <link rel="stylesheet" href="./estilos/style.css" type="text/css">
     <script src="./funciones/funciones.js"></script>
-    <script src="./funciones/auth-mock.js"></script>
 </head>
 
 <body>
@@ -44,19 +43,16 @@
                 <h1>Ingresar</h1>
                 <p>Usá la cuenta que te dio el vivero.</p>
             </div>
-            <form id="loginForm" target="_self" autocomplete="on">
-                <div class="login-error" id="login-error">
-                    <!-- <p>El correo o la contraseña no coinciden. Probá de nuevo.</p> -->
-                </div>
+            <form id="loginForm">
                 <div class="form-box">
-                    <label class="leyenda" for="usuario">USUARIO</label>
+                    <label class="leyenda" for="user">USUARIO</label>
                     <br />
                     <input 
                         class="text-input" 
                         placeholder="Usuario"
                         type="text" 
-                        id="usuario" 
-                        name="usuario" 
+                        id="user" 
+                        name="user" 
                         required/>
                     <br />
                 </div>
@@ -75,6 +71,7 @@
                         <label for="check">Mantener la sesión iniciada</label>
                     </div>
                 </div>
+                <div class="login-error" id="login-error"></div>
                 <button class="form-bottom" type="submit">Ingresar</button>
             </form>
             <div class="login-links">
@@ -110,6 +107,8 @@
             <p>(c) 2026 VIVERO RAÍZ - TRABAJO PRÁCTICO INTEGRADOR</p>
         </section>
     </footer>
+    
+    <script src="./funciones/auth-mock.js"></script>
 </body>
 
 </html>
