@@ -6,10 +6,16 @@
 
 :root {
     /* Colors */
+    --color-background: hsl(143, 23%, 98%);
+    --color-white: hsla(143, 0%, 100%, 1);
+    --color-head: hsl(143, 26%, 23%);
+    --color-text: hsl(143, 0%, 33%);
+    --color-shadow: hsl(143, 0%, 0%, 0.05);
+    
     --color-black: hsl(203, 90%, 12%);
     --color-dark: hsl(143, 90%, 12%);
-    --color-dark-shadow: hsl(143, 90%, 12%, 0.1);
-    --color-dark-ligth: hsl(162, 50%, 20%);
+    
+    --color-dark-ligth: hsl(143, 28%, 35%);
     --color-ligth: hsl(0, 0%, 78%);
     --color-ligth-shadow: hsl(0, 0%, 100%, 0.1);
     --color-ligth-dark: hsl(180, 100%, 97%);
@@ -31,11 +37,13 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    color: var(--color-black);
+    color: var(--color-text);
+    line-height: 1.7;
     display: grid;
     grid-template-rows: 0.75fr minmax(1fr, 10fr) 2fr;
     width: 100%;
     height: auto;
+    background: var(--color-background);
 }
 
 h1,
@@ -45,8 +53,9 @@ h4,
 h5,
 h6 {
     font-family: var(--text-titles);
-    color: var(--color-dark);
+    color: var(--color-head);
 }
+
 
 /* ===========================
     Header
@@ -59,6 +68,7 @@ h6 {
     height: auto;
     width: 100%;
     background-color: var(--color-dark);
+    line-height: 1.2;
 }
 
 /* Estilo para la sección del logo */
@@ -666,6 +676,82 @@ footer {
     object-fit: cover;
     margin: 0.15em 0.25em;
     border-radius: 10px;
+}
+
+/* ===========================
+    Etilo de la sección
+    de nosotros.html
+=========================== */
+
+.about-us {
+    padding: 80px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-header h2 {
+    font-size: 2.5rem;
+    margin: 10px 0 20px;
+}
+
+.about-header p {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.about-block {
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--color-shadow);
+    transition: .3s;
+}
+
+.about-block:hover {
+    transform: translateY(-5px);
+}
+
+.about-block h3 {
+    margin-bottom: 15px;
+}
+
+.about-footer {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.about-footer p {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 14px 30px;
+    background: var(--color-dark-ligth);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.btn-primary:hover {
+    background: var(--color-dark);
 }
 
 /* ===========================
