@@ -1,15 +1,15 @@
 const usuarios = [
     {
         user: "admin",
-        pwd: "Admin1234%"
+        pwd: "1234"
     },
     {
-        user: "juan2026",
-        pwd: "juaN123!"
+        user: "hernandezj",
+        pwd: "vivero2026"
     },
     {
-        user: "maria2022",
-        pwd: "maRia$123"
+        user: "ordazg",
+        pwd: "vivero2022"
     }
 ];
 

@@ -45,39 +45,28 @@
             </div>
             <form id="loginForm">
                 <div class="form-box">
-                    <label class="leyenda" for="user">USUARIO</label>
+                    <label class="leyenda" for="user">Usuario</label>
                     <br />
-                    <input 
-                        class="text-input" 
-                        placeholder="Usuario"
-                        type="text" 
-                        id="user" 
-                        name="user" 
-                        required/>
+                    <input class="text-input" placeholder="Escribí tu usuario" type="text" id="user" name="user"
+                        required />
                     <br />
                 </div>
                 <div class="form-box">
-                    <label class="leyenda" for="pwd">CONTRASEÑA</label>
+                    <label class="leyenda" for="pwd">Contraseña</label>
                     <br />
-                    <input 
-                        class="text-input" 
-                        placeholder="Contraseña"
-                        type="password" 
-                        id="pwd" 
-                        name="pwd" 
-                        required/>
+                    <input class="text-input" placeholder="Escribí tu contraseña" type="password" id="pwd" name="pwd"
+                        required />
                     <div class="form-check">
                         <input type="checkbox" id="check" name="check" />
                         <label for="check">Mantener la sesión iniciada</label>
                     </div>
                 </div>
                 <div class="login-error" id="login-error"></div>
-                <button class="form-bottom" type="submit">Ingresar</button>
+                <div class="form-box">
+                    <button class="form-btn-primary" type="submit">Ingresar</button>
+                    <p>¿No tenés cuenta? <a class="link" href="./registro.html">Registrate</a></p>
+                </div>
             </form>
-            <div class="login-links">
-                <p><a href="#">¿Olvidaste tu contraseña?</a></p>
-                <p>¿No tenés cuenta? <a href="./registro.html">Registrate</a></p>
-            </div>
         </section>
     </main>
     <footer>
@@ -107,7 +96,7 @@
             <p>(c) 2026 VIVERO RAÍZ - TRABAJO PRÁCTICO INTEGRADOR</p>
         </section>
     </footer>
-    
+
     <script src="./funciones/auth-mock.js"></script>
 </body>
 

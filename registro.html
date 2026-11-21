@@ -34,75 +34,86 @@
             </ul>
         </nav>
     </header>
-    <main>
-
-        <div class="container">
-            <div class="imagen">
-                <img alt="imagen-lateral" src="./img/vivero_home_2.jpg" />
-            </div>
-            <div class="formulario">
+    <main class="registro-container">
+        <aside class="login-img">
+            <img alt="vivero" src="./img/vivero_home_2.jpg" />
+        </aside>
+        <section class="login-form">
+            <div class="login-form-hd">
                 <h1>Crear cuenta</h1>
-                <p>Los campos marcados con * son obligatorios.</p>
-                <form action="#" target="_self" autocomplete="on">
+
+            </div>
+            <form id="registroForm">
+                <div class="fildset-container">
                     <fieldset class="form-set-1">
                         <legend>DATOS PERSONALES</legend>
                         <div class="form-box">
-                            <label for="fname">NOMBRE *</label>
+                            <label for="fname">Nombre *</label>
                             <br />
-                            <input class="text-input" type="text" id="fname" name="fname" />
+                            <input class="text-input" type="text" id="fname" name="fname" placeholder="¿Cómo te llamás?"
+                                required />
+                            <div class="registro-error" id="registro-fname-error"></div>
                         </div>
                         <div class="form-box">
-                            <label for="lname">APELLIDO *</label>
+                            <label for="lname">Apellido *</label>
                             <br />
-                            <input class="text-input" type="text" id="lname" name="lname" />
+                            <input class="text-input" type="text" id="lname" name="lname"
+                                placeholder="¿Cuál es tu apellido?" required />
+                            <div class="registro-error" id="registro-lname-error"></div>
                         </div>
                         <div class="form-box">
-                            <label for="bdate">FECHA DE NACIMIENTO</label>
+                            <label for="bdate">Fecha de Nacimiento</label>
                             <br />
                             <input class="text-input" type="date" id="bdate" name="bdate" />
+                            <div class="registro-error" id="registro-bdate-error"></div>
                         </div>
                         <div class="form-box">
-                            <label for="phone">TELÉFONO</label>
+                            <label for="phone">Teléfono</label>
                             <br />
-                            <input class="text-input" type="email" id="phone" name="phone" />
+                            <input class="text-input" type="tel" id="phone" name="phone" placeholder="Celular" />
+                            <div class="registro-error" id="registro-phone-error"></div>
                         </div>
                     </fieldset>
                     <fieldset class="form-set-1">
                         <legend>DATOS DE LA CUENTA</legend>
                         <div class="form-box">
-                            <label for="email">CORREO ELECTRÓNICO *</label>
+                            <label for="email">Correo electónico *</label>
                             <br />
-                            <input class="text-input" type="email" id="email" name="email" />
+                            <input class="text-input" type="email" id="email" name="email"
+                                placeholder="tuusuario@viveroraiz.com.ar" required />
+                            <div class="registro-error" id="registro-email-error"></div>
                         </div>
                         <div class="form-box">
-                            <label for="pwd">CONTRASEÑA *</label>
-                            <br />
-                            <input class="text-input" type="password" id="pwd" name="pwd" />
+                            <label for="roles">Rol en el vivero *</label>
+                            <select class="desplegable" id="roles" name="roles" required>
+                                <option value="">Elegí una opción</option>
+                                <option value="vendedor">Vendedor</option>
+                                <option value="repartidor">Repartidor</option>
+                                <option value="catalogador">Catalogador</option>
+                            </select>
                         </div>
                         <div class="form-box">
-                            <label for="pwd2">REPETIR CONTRASEÑA *</label>
+                            <label for="pwd1">Contraseña *</label>
                             <br />
-                            <input class="text-input" type="password" id="pwd2" name="pwd2" />
+                            <input class="text-input" type="password" id="pwd1" name="pwd1" minlength="6" maxlength="10"
+                                required />
+                            <div class="registro-error" id="registro-pwd1-error"></div>
+                        </div>
+                        <div class="form-box">
+                            <label for="pwd2">Repetir Contraseña *</label>
+                            <br />
+                            <input class="text-input" type="password" id="pwd2" name="pwd2" minlength="6" maxlength="10"
+                                required />
+                            <div class="registro-error" id="registro-pwd2-error"></div>
                         </div>
                     </fieldset>
-                    <div class="form-box">
-                        <label for="roles">ROL EN EL VIVERO *</label>
-                        <select class="desplegable" id="roles" name="roles">
-                            <option value="">Elegí una opción</option>
-                            <option value="vendedor">Vendedor</option>
-                            <option value="repartidor">Repartidor</option>
-                            <option value="catalogador">Catalogador</option>
-                        </select>
-                    </div>
-                    <div class="form-box">
-                        <input class="form-bottom" type="submit" value="CREAR CUENTA" />
-                    </div>
-                </form>
-                <div class="links-container">
-                    <p class="left">¿Ya tenés cuenta? <a href="./login.html">Ingresá</a></p>
                 </div>
-            </div>
-        </div>
+                <div class="form-box">
+                    <button type="submit" class="form-btn-primary">Crear cuenta</button>
+                    <p>¿Ya tenés cuenta? <a class="link" href="./login.html">Ingresá</a></p>
+                </div>
+            </form>
+        </section>
     </main>
     <footer>
         <section class="foot-items">
@@ -131,6 +142,7 @@
             <p>(c) 2026 VIVERO RAÍZ - TRABAJO PRÁCTICO INTEGRADOR</p>
         </section>
     </footer>
+    <scrit src="./funciones/auth-mock.js"></scrit>
 </body>
 
 </html>
