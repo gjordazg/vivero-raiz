@@ -308,6 +308,18 @@ footer {
     margin: 0;
     padding: auto;
 }
+.card-title {
+    justify-self: center;
+}
+
+.link-card {
+    display: block;
+    text-decoration: none;
+    color: var(--color-dark);
+    cursor: pointer;
+    justify-self: end;
+    text-align: right;
+}
 
 .idx-card {
     flex: auto;
