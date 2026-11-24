@@ -1,0 +1,124 @@
+// Obtiene detalle de la planta seleccionada, guarda en el SesionStorage y redirige al detalle.
+function verFichaPlanta(plantaId) {
+    const planta = obtenerPlantaPorId(plantaId);
+    sessionStorage.setItem("planta-seleccionada", JSON.stringify(planta));
+    window.location.href = "planta.html?id=" + plantaId;
+}
+
+// Filtra planta por su ID
+function obtenerPlantaPorId(plantaId) {
+    const plantas = obtenerPlantasEnSesion();
+    let plantaSeleccionada;
+    plantas.forEach(planta => {
+        if (planta.id === plantaId) plantaSeleccionada = planta;
+    });
+    return plantaSeleccionada;
+}
+
+// Obtiene las plantas del SesionStorage o consulta a la api
+function obtenerPlantasEnSesion() {
+    let plantas = JSON.parse(sessionStorage.getItem("plantas"));
+    if (plantas === undefined) {
+        plantas = obtenerPlantas();
+    }
+    return plantas
+}
+
+
+function actualizarPlantaId(plantaId) {
+    const plantas = obtenerPlantasEnSesion();
+    let nuevoListado = [];
+    plantas.forEach(
+        planta => {
+        if (planta.id === plantaId) {
+            console.log("planta-id",plantaId);
+            const nuevoStock = document.getElementById("stock-in-"+plantaId).value.trim();
+            console.log("stock",planta.stock,nuevoStock);
+            const nuevoPrecio = document.getElementById("precio-"+plantaId).value.trim();
+            console.log("precio",planta.precio,nuevoPrecio);
+            planta.stock=nuevoStock;
+            planta.precio=nuevoPrecio;
+            nuevoListado.push(planta);
+        } else {
+            nuevoListado.push(planta);
+        }
+    });
+
+    if (nuevoListado.length === 0) {
+        sessionStorage.removeItem("plantas");
+        window.location.href = "catalogo.html";
+    }
+    sessionStorage.setItem("plantas", JSON.stringify(nuevoListado));
+    iniciar();
+}
+
+
+function eliminarPlantaId(plantaId) {
+    const plantas = obtenerPlantasEnSesion();
+    let nuevoListado = [];
+    plantas.forEach(
+        planta => {
+        if (planta.id !== plantaId) {
+            console.log("planta-id",plantaId);
+            nuevoListado.push(planta);
+        }
+    });
+
+    if (nuevoListado.length === 0) {
+        sessionStorage.removeItem("plantas");
+        window.location.href = "catalogo.html";
+    }
+    sessionStorage.setItem("plantas", JSON.stringify(nuevoListado));
+    iniciar();
+}
+
+// Arma la fila del registro para editar:
+function crearRegistro(planta) {
+    return `
+        <div class="catalogo-card">
+            <h3>${planta.nombre}</h3>
+            <img class="catalogo-img" src="${planta.foto}" alt="${planta.nombre}" />
+            <div class="form-box">
+                <label for="precio">Precio</label>
+                <input  
+                    value="${planta.precio}"
+                    class="text-input" 
+                    id="precio-${planta.id}"
+                    name="precio"
+                    type="number"
+                />
+            </div>
+            <div class="form-box">
+                <label for="stock-in">Stock</label>
+                <input  
+                    value="${planta.stock}"
+                    class="text-input" 
+                    id="stock-in-${planta.id}"
+                    name="stock-in"
+                    type="number"
+                />
+            </div>
+            <div class="listado-btn">
+                <button class="btn-primary" onclick="actualizarPlantaId(${planta.id})">Guardar</button> 
+                <button class="btn-primary" onclick="eliminarPlantaId(${planta.id})">Eliminar</button>
+            </div>
+        </div>`;
+}
+
+function renderizarListadoTexto(plantas, contenedor) {
+    contenedor.innerHTML = plantas.map(crearRegistro).join("");
+}
+
+
+
+// Espera la respuesta de la API antes de renderizar
+async function iniciar() {
+    try {
+        const plantas = await obtenerPlantasEnSesion();
+        renderizarListadoTexto(plantas, document.getElementById("listado-container"));
+    } catch (error) {
+        console.error("No se pudo cargar el catálogo:", error);
+    }
+}
+
+iniciar();

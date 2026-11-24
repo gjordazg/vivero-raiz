@@ -9,31 +9,36 @@ async function obtenerPlantas() {
     return response.json();
 }
 
+// Obtiene las plantas del SesionStorage o consulta a la api
+function obtenerPlantasEnSesion() {
+    let plantas = JSON.parse(sessionStorage.getItem("plantas"));
+
+    console.log(plantas);
+    if (plantas === null || plantas === undefined || plantas.length === 0) {
+        plantas = obtenerPlantas();
+    }
+    return plantas
+}
+
 // Obtiene detalle de la planta seleccionada, guarda en el SesionStorage y redirige al detalle.
 function verFichaPlanta(plantaId) {
     const planta = obtenerPlantaPorId(plantaId);
     sessionStorage.setItem("planta-seleccionada", JSON.stringify(planta));
-    window.location.href = "planta.html?id="+plantaId;
+    window.location.href = "planta.html?id=" + plantaId;
 }
 
 // Filtra planta por su ID
 function obtenerPlantaPorId(plantaId) {
     const plantas = obtenerPlantasEnSesion();
-    let plantaSeleccionada; 
+    let plantaSeleccionada;
     plantas.forEach(planta => {
-            if (planta.id === plantaId) plantaSeleccionada = planta;
-        });
+        if (planta.id === plantaId) plantaSeleccionada = planta;
+    });
     return plantaSeleccionada;
 }
 
-// Obtiene las plantas del SesionStorage o consulta a la api
-function obtenerPlantasEnSesion() {
-    let plantas = JSON.parse(sessionStorage.getItem("plantas"));
-    if (plantas === undefined) {
-        plantas = obtenerPlantas();
-    }
-    return plantas
-}
+
+
 
 // Arma la tarjeta informativa de una planta para el catálogo, con un template string
 function crearTarjetaTexto(planta) {
@@ -45,6 +50,7 @@ function crearTarjetaTexto(planta) {
                 <h3 class="planta-nombre">${planta.nombre}</h3>
                 <p class="especie"><i>${planta.nombreCientifico}</i></p>
                 <h2 class="precio">$ ${planta.precio}</h2> 
+                <p class="stock">Stock: ${planta.stock}</p>
                 <button class="planta-btn" onclick="verFichaPlanta(${planta.id})">
                     Ver ficha
                 </button>
@@ -57,12 +63,26 @@ function renderizarCatalogoTexto(plantas, contenedor) {
     contenedor.innerHTML = plantas.map(crearTarjetaTexto).join("");
 }
 
+function validarSesion() {
+    const adminLogueado = sessionStorage.getItem("adminLogueado");
+    updateVisibility(adminLogueado === "true" ? "block" : "none");
+}
+
+function updateVisibility(styleValue) {
+    const elements = document.getElementsByClassName("stock");
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.display = styleValue;
+    }
+    document.getElementById("btn-stock").style.display = styleValue;
+}
+
 // Espera la respuesta de la API antes de renderizar
 async function iniciar() {
     try {
-        const plantas = await obtenerPlantas();
+        const plantas = await obtenerPlantasEnSesion();
         renderizarCatalogoTexto(plantas, document.getElementById("catalogo-container"));
-        sessionStorage.setItem( "plantas", JSON.stringify(plantas));
+        sessionStorage.setItem("plantas", JSON.stringify(plantas));
+        validarSesion();
     } catch (error) {
         console.error("No se pudo cargar el catálogo:", error);
     }
