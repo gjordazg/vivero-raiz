@@ -21,7 +21,7 @@ function obtenerPlantaPorId(plantaId) {
 
 // Obtiene las plantas del SesionStorage o consulta a la api
 function obtenerPlantasEnSesion() {
-    let plantas = JSON.parse(sessionStorage.getItem("plantas"));
+    let plantas = JSON.parse(sessionStorage.getItem("plantas-api"));
     if (plantas === undefined) {
         plantas = obtenerPlantas();
     }

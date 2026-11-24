@@ -37,9 +37,23 @@
     <main>
         <section class="catalogo-header">
             <h1>Catálogo</h1>
-            <p>
-                Encuentra la planta ideal para vos.
-            </p>
+            <div class="busqueda-planta">
+                <p>
+                    Encuentra la planta ideal para vos: 
+                    <input 
+                        type="text" 
+                        id="buscar-planta"
+                        placeholder="Buscar planta..." 
+                    />
+                </p>
+                <select class="tipo-planta" id="tipo-planta" name="tipo-planta" required>
+                    <option value="todas" selected>Todas</option>
+                    <option value="exterior">Exterior</option>
+                    <option value="interior">Interior</option>
+                    <option value="suculenta">Suculentas</option>
+                    <option value="aromática">Aromaticas</option>
+                </select>
+            </div>
         </section>
         <section class="catalogo-container" id="catalogo-container"></section>>
         <div>

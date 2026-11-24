@@ -308,6 +308,7 @@ footer {
     margin: 0;
     padding: auto;
 }
+
 .card-title {
     justify-self: center;
 }
@@ -357,12 +358,45 @@ footer {
     margin: auto;
 }
 
+.busqueda-planta {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+#buscar-planta,
+.tipo-planta {
+    display: inline-block;
+    border: solid 1px var(--color-dark-ligth);
+    border-radius: 8px;
+    height: 0.8rem;
+    max-width: 200px;
+    padding: 1em;
+}
+
+#buscar-planta::placeholder {
+    color: var(--color-dark-ligth);
+}
+
+#buscar-planta:focus {
+    border-color: var(--color-dark);
+}
+
+.tipo-planta {
+    width: 500px;
+    padding: 0.8em;
+    height: 2.5rem;
+    margin: 1rem 2rem;
+    align-self: baseline;
+}
+
 /* ===========================
     Etilo de los elementos 
     del login.html
 =========================== */
 
-.login-container, .registro-container {
+.login-container,
+.registro-container {
     display: grid;
     grid-template-columns: 35% 65%;
     height: auto;
@@ -619,7 +653,8 @@ footer {
     transition: .3s;
 }
 
-.planta-btn:hover, #btn-stock:hover {
+.planta-btn:hover,
+#btn-stock:hover {
     background: var(--color-dark);
 }
 
@@ -991,7 +1026,8 @@ footer {
 
 
     /* Login style */
-    .login-container, .registro-container {
+    .login-container,
+    .registro-container {
         display: block;
     }
 
@@ -1023,6 +1059,17 @@ footer {
     .detalle-planta-text,
     .detalle-planta-img {
         width: 90%;
+    }
+
+    #buscar-planta,
+    .tipo-planta {
+        display: block;
+        margin: 1rem 2rem;
+        justify-self: center;
+    }
+
+    .busqueda-planta {
+        justify-content: space-around;
     }
 
 }

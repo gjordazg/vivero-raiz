@@ -11,7 +11,7 @@ async function obtenerPlantas() {
 
 // Obtiene las plantas del SesionStorage o consulta a la api
 function obtenerPlantasEnSesion() {
-    let plantas = JSON.parse(sessionStorage.getItem("plantas"));
+    let plantas = JSON.parse(sessionStorage.getItem("plantas-api"));
 
     console.log(plantas);
     if (plantas === null || plantas === undefined || plantas.length === 0) {
@@ -38,7 +38,86 @@ function obtenerPlantaPorId(plantaId) {
 }
 
 
+function debounce(callback, delay = 300) {
+    let timeout;
 
+    return (...args) => {
+        clearTimeout(timeout);
+
+        timeout = setTimeout(() => {
+            callback(...args);
+        }, delay);
+    };
+}
+
+// bounce para iniciar la búsqueda
+const buscar = debounce(() => {
+
+    let texto = inputBuscar.value.trim();
+    let categoria = tipoPlanta.value.trim();
+
+    let esTextoVacio = texto === null || texto === undefined || texto.length ===0;
+
+    console.log("entra en buscar...", texto, categoria)
+    const plantas = obtenerPlantasEnSesion();
+    let filtrados = null;
+    if (categoria !== "todas" && esTextoVacio) {
+        filtrados = plantas.filter(planta => 
+            planta.categoria.toLowerCase().includes(categoria.toLowerCase())
+        );
+    } else if (categoria !== "todas" && !esTextoVacio) {
+        filtrados = plantas.filter(
+            planta => 
+                planta.categoria.toLowerCase().includes(categoria.toLowerCase())
+                && Object.values(planta).some(
+                    valor =>
+                    String(valor)
+                        .toLowerCase()
+                        .includes(texto.toLowerCase())
+                    )
+        );
+    } else if (categoria === "todas" && !esTextoVacio) {
+        filtrados = plantas.filter(planta => 
+            Object.values(planta).some(valor =>
+                    String(valor)
+                        .toLowerCase()
+                        .includes(texto.toLowerCase())
+                    )
+        );
+    }
+    else {
+        filtrados = plantas;
+    }
+
+    console.log("filtrado:", filtrados, "es diferente:", filtrados!==plantas)
+
+    renderizarCatalogoTexto(filtrados, resultado);
+}, 300);
+
+
+// Valor del input y el selector
+const inputBuscar = document.getElementById("buscar-planta");
+const tipoPlanta = document.getElementById("tipo-planta");
+
+inputBuscar.addEventListener("input", buscar);
+tipoPlanta.addEventListener("change", buscar); 
+
+//====================
+
+// Validamos una sesión activa
+function validarSesion() {
+    const adminLogueado = sessionStorage.getItem("adminLogueado");
+    toogleBtnIrListado(adminLogueado === "true" ? "block" : "none");
+}
+
+// Se muestra u oculta botón de redirección al listado.
+function toogleBtnIrListado(styleValue) {
+    const elements = document.getElementsByClassName("stock");
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.display = styleValue;
+    }
+    document.getElementById("btn-stock").style.display = styleValue;
+}
 
 // Arma la tarjeta informativa de una planta para el catálogo, con un template string
 function crearTarjetaTexto(planta) {
@@ -63,25 +142,15 @@ function renderizarCatalogoTexto(plantas, contenedor) {
     contenedor.innerHTML = plantas.map(crearTarjetaTexto).join("");
 }
 
-function validarSesion() {
-    const adminLogueado = sessionStorage.getItem("adminLogueado");
-    updateVisibility(adminLogueado === "true" ? "block" : "none");
-}
+// Contenedor para renderizar
+const resultado = document.getElementById("catalogo-container");
 
-function updateVisibility(styleValue) {
-    const elements = document.getElementsByClassName("stock");
-    for (i = 0; i < elements.length; i++) {
-        elements[i].style.display = styleValue;
-    }
-    document.getElementById("btn-stock").style.display = styleValue;
-}
-
-// Espera la respuesta de la API antes de renderizar
+// Se obtienen las plantas de sesión (o API) y se renderiza
 async function iniciar() {
     try {
         const plantas = await obtenerPlantasEnSesion();
-        renderizarCatalogoTexto(plantas, document.getElementById("catalogo-container"));
-        sessionStorage.setItem("plantas", JSON.stringify(plantas));
+        renderizarCatalogoTexto(plantas, resultado);
+        sessionStorage.setItem("plantas-api", JSON.stringify(plantas));
         validarSesion();
     } catch (error) {
         console.error("No se pudo cargar el catálogo:", error);

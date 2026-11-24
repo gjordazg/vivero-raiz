@@ -17,7 +17,7 @@ function obtenerPlantaPorId(plantaId) {
 
 // Obtiene las plantas del SesionStorage o consulta a la api
 function obtenerPlantasEnSesion() {
-    let plantas = JSON.parse(sessionStorage.getItem("plantas"));
+    let plantas = JSON.parse(sessionStorage.getItem("plantas-api"));
     if (plantas === undefined) {
         plantas = obtenerPlantas();
     }
@@ -45,10 +45,10 @@ function actualizarPlantaId(plantaId) {
     });
 
     if (nuevoListado.length === 0) {
-        sessionStorage.removeItem("plantas");
+        sessionStorage.removeItem("plantas-api");
         window.location.href = "catalogo.html";
     }
-    sessionStorage.setItem("plantas", JSON.stringify(nuevoListado));
+    sessionStorage.setItem("plantas-api", JSON.stringify(nuevoListado));
     iniciar();
 }
 
@@ -65,10 +65,10 @@ function eliminarPlantaId(plantaId) {
     });
 
     if (nuevoListado.length === 0) {
-        sessionStorage.removeItem("plantas");
+        sessionStorage.removeItem("plantas-api");
         window.location.href = "catalogo.html";
     }
-    sessionStorage.setItem("plantas", JSON.stringify(nuevoListado));
+    sessionStorage.setItem("plantas-api", JSON.stringify(nuevoListado));
     iniciar();
 }
 
