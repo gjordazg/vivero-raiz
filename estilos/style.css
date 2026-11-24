@@ -687,6 +687,13 @@ footer {
     margin: 0 0.25em;
 }
 
+.busqueda-error {
+    color: var(--color-error);
+    text-align: center;
+    justify-self: center;
+    padding: 2em 3em;
+}
+
 /* ===========================
     Etilo de la sección
     de planta.html

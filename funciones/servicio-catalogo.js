@@ -89,11 +89,19 @@ const buscar = debounce(() => {
         filtrados = plantas;
     }
 
-    console.log("filtrado:", filtrados, "es diferente:", filtrados!==plantas)
-
-    renderizarCatalogoTexto(filtrados, resultado);
+    if (filtrados.length > 0)
+        renderizarCatalogoTexto(filtrados, resultado);
+    else
+        renderizarError(resultado);
 }, 300);
 
+
+function renderizarError(contenedor) {
+    contenedor.innerHTML = `
+        <h2 class="busqueda-error">
+            No se encontraron plantas que coincidan con tu búsqueda
+        </h2>`;
+}
 
 // Valor del input y el selector
 const inputBuscar = document.getElementById("buscar-planta");
