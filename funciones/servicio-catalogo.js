@@ -37,6 +37,16 @@ function obtenerPlantaPorId(plantaId) {
     return plantaSeleccionada;
 }
 
+window.addEventListener('DOMContentLoaded', () => {
+
+    const params = new URLSearchParams(window.location.search);
+    const categoria = params.get('categoria');
+
+    if (categoria) {
+        tipoPlanta.value = categoria;
+        tipoPlanta.dispatchEvent(new Event('change'));
+    }
+});
 
 function debounce(callback, delay = 300) {
     let timeout;
